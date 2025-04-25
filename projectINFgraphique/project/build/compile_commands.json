@@ -1,0 +1,614 @@
+[
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\01_base\\basic_types\\basic_types.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\01_base\\basic_types\\basic_types.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/01_base/basic_types/basic_types.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/01_base/basic_types/basic_types.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\01_base\\error\\error.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\01_base\\error\\error.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/01_base/error/error.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/01_base/error/error.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\01_base\\string\\string.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\01_base\\string\\string.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/01_base/string/string.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/01_base/string/string.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\02_numarray\\numarray\\test\\test_numarray.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\02_numarray\\numarray\\test\\test_numarray.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/02_numarray/numarray/test/test_numarray.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/02_numarray/numarray/test/test_numarray.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\02_numarray\\numarray_stack\\special_types\\special_types.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\02_numarray\\numarray_stack\\special_types\\special_types.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/02_numarray/numarray_stack/special_types/special_types.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/02_numarray/numarray_stack/special_types/special_types.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\02_numarray\\numarray_stack\\test\\test_numarray_stack.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\02_numarray\\numarray_stack\\test\\test_numarray_stack.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/02_numarray/numarray_stack/test/test_numarray_stack.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/02_numarray/numarray_stack/test/test_numarray_stack.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\03_files\\files.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\03_files\\files.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/03_files/files.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/03_files/files.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\04_grid_container\\grid\\test\\test_grid.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\04_grid_container\\grid\\test\\test_grid.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/04_grid_container/grid/test/test_grid.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/04_grid_container/grid/test/test_grid.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\04_grid_container\\grid_stack\\grid_stack_2D\\test\\test_grid_stack_2D.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\04_grid_container\\grid_stack\\grid_stack_2D\\test\\test_grid_stack_2D.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/04_grid_container/grid_stack/grid_stack_2D/test/test_grid_stack_2D.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/04_grid_container/grid_stack/grid_stack_2D/test/test_grid_stack_2D.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\04_grid_container\\matrix_stack\\special_types\\definition\\special_types.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\04_grid_container\\matrix_stack\\special_types\\definition\\special_types.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/04_grid_container/matrix_stack/special_types/definition/special_types.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/04_grid_container/matrix_stack/special_types/definition/special_types.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\04_grid_container\\offset_grid\\offset_grid.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\04_grid_container\\offset_grid\\offset_grid.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/04_grid_container/offset_grid/offset_grid.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/04_grid_container/offset_grid/offset_grid.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\06_mat\\functions\\mat_functions.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\06_mat\\functions\\mat_functions.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/06_mat/functions/mat_functions.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/06_mat/functions/mat_functions.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\06_mat\\functions\\test\\test_vec_mat.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\06_mat\\functions\\test\\test_vec_mat.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/06_mat/functions/test/test_vec_mat.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/06_mat/functions/test/test_vec_mat.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\06_mat\\mat2\\mat2.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\06_mat\\mat2\\mat2.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/06_mat/mat2/mat2.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/06_mat/mat2/mat2.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\06_mat\\mat3\\mat3.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\06_mat\\mat3\\mat3.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/06_mat/mat3/mat3.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/06_mat/mat3/mat3.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\06_mat\\mat4\\mat4.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\06_mat\\mat4\\mat4.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/06_mat/mat4/mat4.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/06_mat/mat4/mat4.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\06_mat\\test\\test_matrix_stack.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\06_mat\\test\\test_matrix_stack.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/06_mat/test/test_matrix_stack.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/06_mat/test/test_matrix_stack.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\07_image\\image.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\07_image\\image.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/07_image/image.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/07_image/image.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\08_random_noise\\noise\\noise.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\08_random_noise\\noise\\noise.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/08_random_noise/noise/noise.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/08_random_noise/noise/noise.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\08_random_noise\\rand\\rand.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\08_random_noise\\rand\\rand.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/08_random_noise/rand/rand.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/08_random_noise/rand/rand.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\09_geometric_transformation\\affine\\affine\\affine.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\09_geometric_transformation\\affine\\affine\\affine.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/09_geometric_transformation/affine/affine/affine.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/09_geometric_transformation/affine/affine/affine.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\09_geometric_transformation\\affine\\affine_rt\\affine_rt.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\09_geometric_transformation\\affine\\affine_rt\\affine_rt.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/09_geometric_transformation/affine/affine_rt/affine_rt.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/09_geometric_transformation/affine/affine_rt/affine_rt.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\09_geometric_transformation\\affine\\affine_rts\\affine_rts.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\09_geometric_transformation\\affine\\affine_rts\\affine_rts.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/09_geometric_transformation/affine/affine_rts/affine_rts.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/09_geometric_transformation/affine/affine_rts/affine_rts.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\09_geometric_transformation\\frame\\frame.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\09_geometric_transformation\\frame\\frame.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/09_geometric_transformation/frame/frame.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/09_geometric_transformation/frame/frame.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\09_geometric_transformation\\interpolation\\interpolation.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\09_geometric_transformation\\interpolation\\interpolation.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/09_geometric_transformation/interpolation/interpolation.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/09_geometric_transformation/interpolation/interpolation.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\09_geometric_transformation\\projection\\projection.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\09_geometric_transformation\\projection\\projection.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/09_geometric_transformation/projection/projection.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/09_geometric_transformation/projection/projection.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\09_geometric_transformation\\quaternion\\quaternion.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\09_geometric_transformation\\quaternion\\quaternion.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/09_geometric_transformation/quaternion/quaternion.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/09_geometric_transformation/quaternion/quaternion.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\09_geometric_transformation\\rotation_transform\\rotation_transform.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\09_geometric_transformation\\rotation_transform\\rotation_transform.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/09_geometric_transformation/rotation_transform/rotation_transform.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/09_geometric_transformation/rotation_transform/rotation_transform.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\09_geometric_transformation\\rotation_transform\\test\\test_rotation.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\09_geometric_transformation\\rotation_transform\\test\\test_rotation.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/09_geometric_transformation/rotation_transform/test/test_rotation.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/09_geometric_transformation/rotation_transform/test/test_rotation.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\10_camera_model\\camera_model\\camera_first_person\\camera_first_person.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\10_camera_model\\camera_model\\camera_first_person\\camera_first_person.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/10_camera_model/camera_model/camera_first_person/camera_first_person.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/10_camera_model/camera_model/camera_first_person/camera_first_person.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\10_camera_model\\camera_model\\camera_first_person_euler\\camera_first_person_euler.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\10_camera_model\\camera_model\\camera_first_person_euler\\camera_first_person_euler.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/10_camera_model/camera_model/camera_first_person_euler/camera_first_person_euler.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/10_camera_model/camera_model/camera_first_person_euler/camera_first_person_euler.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\10_camera_model\\camera_model\\camera_generic_base\\camera_generic_base.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\10_camera_model\\camera_model\\camera_generic_base\\camera_generic_base.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/10_camera_model/camera_model/camera_generic_base/camera_generic_base.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/10_camera_model/camera_model/camera_generic_base/camera_generic_base.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\10_camera_model\\camera_model\\camera_orbit\\camera_orbit.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\10_camera_model\\camera_model\\camera_orbit\\camera_orbit.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/10_camera_model/camera_model/camera_orbit/camera_orbit.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/10_camera_model/camera_model/camera_orbit/camera_orbit.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\10_camera_model\\camera_model\\camera_orbit_euler\\camera_orbit_euler.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\10_camera_model\\camera_model\\camera_orbit_euler\\camera_orbit_euler.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/10_camera_model/camera_model/camera_orbit_euler/camera_orbit_euler.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/10_camera_model/camera_model/camera_orbit_euler/camera_orbit_euler.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\10_camera_model\\camera_model\\common_functions\\common_functions.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\10_camera_model\\camera_model\\common_functions\\common_functions.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/10_camera_model/camera_model/common_functions/common_functions.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/10_camera_model/camera_model/common_functions/common_functions.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\10_camera_model\\camera_projection\\camera_projection.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\10_camera_model\\camera_projection\\camera_projection.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/10_camera_model/camera_projection/camera_projection.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/10_camera_model/camera_projection/camera_projection.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\11_mesh\\mesh\\mesh.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\11_mesh\\mesh\\mesh.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/11_mesh/mesh/mesh.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/11_mesh/mesh/mesh.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\11_mesh\\primitive\\primitive.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\11_mesh\\primitive\\primitive.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/11_mesh/primitive/primitive.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/11_mesh/primitive/primitive.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\12_shape\\bounding_box\\bounding_box.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\12_shape\\bounding_box\\bounding_box.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/12_shape/bounding_box/bounding_box.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/12_shape/bounding_box/bounding_box.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\12_shape\\curve\\curve.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\12_shape\\curve\\curve.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/12_shape/curve/curve.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/12_shape/curve/curve.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\12_shape\\implicit\\marching_cube\\helper\\marching_cubes_lut.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\12_shape\\implicit\\marching_cube\\helper\\marching_cubes_lut.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/12_shape/implicit/marching_cube/helper/marching_cubes_lut.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/12_shape/implicit/marching_cube/helper/marching_cubes_lut.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\12_shape\\implicit\\marching_cube\\marching_cube.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\12_shape\\implicit\\marching_cube\\marching_cube.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/12_shape/implicit/marching_cube/marching_cube.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/12_shape/implicit/marching_cube/marching_cube.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\12_shape\\intersection\\intersection.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\12_shape\\intersection\\intersection.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/12_shape/intersection/intersection.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/12_shape/intersection/intersection.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\12_shape\\spatial_domain\\spatial_domain_grid_3D\\spatial_domain_grid_3D.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\12_shape\\spatial_domain\\spatial_domain_grid_3D\\spatial_domain_grid_3D.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/12_shape/spatial_domain/spatial_domain_grid_3D/spatial_domain_grid_3D.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/12_shape/spatial_domain/spatial_domain_grid_3D/spatial_domain_grid_3D.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\13_opengl\\buffer\\ebo\\ebo.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\13_opengl\\buffer\\ebo\\ebo.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/13_opengl/buffer/ebo/ebo.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/13_opengl/buffer/ebo/ebo.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\13_opengl\\buffer\\opengl_buffer\\opengl_buffer.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\13_opengl\\buffer\\opengl_buffer\\opengl_buffer.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/13_opengl/buffer/opengl_buffer/opengl_buffer.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/13_opengl/buffer/opengl_buffer/opengl_buffer.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\13_opengl\\buffer\\vbo\\vbo.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\13_opengl\\buffer\\vbo\\vbo.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/13_opengl/buffer/vbo/vbo.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/13_opengl/buffer/vbo/vbo.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\13_opengl\\debug\\debug.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\13_opengl\\debug\\debug.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/13_opengl/debug/debug.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/13_opengl/debug/debug.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\13_opengl\\emscripten\\emscripten.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\13_opengl\\emscripten\\emscripten.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/13_opengl/emscripten/emscripten.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/13_opengl/emscripten/emscripten.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\13_opengl\\fbo\\fbo.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\13_opengl\\fbo\\fbo.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/13_opengl/fbo/fbo.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/13_opengl/fbo/fbo.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\13_opengl\\shaders\\cache_uniform_location\\cache_uniform_location.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\13_opengl\\shaders\\cache_uniform_location\\cache_uniform_location.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/13_opengl/shaders/cache_uniform_location/cache_uniform_location.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/13_opengl/shaders/cache_uniform_location/cache_uniform_location.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\13_opengl\\shaders\\shaders.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\13_opengl\\shaders\\shaders.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/13_opengl/shaders/shaders.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/13_opengl/shaders/shaders.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\13_opengl\\texture\\texture.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\13_opengl\\texture\\texture.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/13_opengl/texture/texture.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/13_opengl/texture/texture.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\13_opengl\\uniform\\uniform.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\13_opengl\\uniform\\uniform.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/13_opengl/uniform/uniform.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/13_opengl/uniform/uniform.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\14_window\\imgui\\imgui.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\14_window\\imgui\\imgui.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/14_window/imgui/imgui.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/14_window/imgui/imgui.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\14_window\\window\\window.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\14_window\\window\\window.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/14_window/window/window.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/14_window/window/window.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\15_input_devices\\input_devices.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\15_input_devices\\input_devices.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/15_input_devices/input_devices.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/15_input_devices/input_devices.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\16_drawable\\curve_drawable\\curve_drawable.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\16_drawable\\curve_drawable\\curve_drawable.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/16_drawable/curve_drawable/curve_drawable.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/16_drawable/curve_drawable/curve_drawable.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\16_drawable\\curve_drawable_dynamic_extend\\curve_drawable_dynamic_extend.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\16_drawable\\curve_drawable_dynamic_extend\\curve_drawable_dynamic_extend.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/16_drawable/curve_drawable_dynamic_extend/curve_drawable_dynamic_extend.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/16_drawable/curve_drawable_dynamic_extend/curve_drawable_dynamic_extend.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\16_drawable\\environment\\environment.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\16_drawable\\environment\\environment.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/16_drawable/environment/environment.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/16_drawable/environment/environment.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\16_drawable\\hierarchy_mesh_drawable\\hierarchy_mesh_drawable.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\16_drawable\\hierarchy_mesh_drawable\\hierarchy_mesh_drawable.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/16_drawable/hierarchy_mesh_drawable/hierarchy_mesh_drawable.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/16_drawable/hierarchy_mesh_drawable/hierarchy_mesh_drawable.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\16_drawable\\material\\material_mesh_drawable_phong\\material_mesh_drawable_phong.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\16_drawable\\material\\material_mesh_drawable_phong\\material_mesh_drawable_phong.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/16_drawable/material/material_mesh_drawable_phong/material_mesh_drawable_phong.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/16_drawable/material/material_mesh_drawable_phong/material_mesh_drawable_phong.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\16_drawable\\mesh_drawable\\mesh_drawable.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\16_drawable\\mesh_drawable\\mesh_drawable.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/16_drawable/mesh_drawable/mesh_drawable.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/16_drawable/mesh_drawable/mesh_drawable.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\16_drawable\\special_drawable\\skybox_drawable\\skybox_drawable.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\16_drawable\\special_drawable\\skybox_drawable\\skybox_drawable.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/16_drawable/special_drawable/skybox_drawable/skybox_drawable.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/16_drawable/special_drawable/skybox_drawable/skybox_drawable.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\16_drawable\\special_drawable\\trajectory_drawable\\trajectory_drawable.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\16_drawable\\special_drawable\\trajectory_drawable\\trajectory_drawable.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/16_drawable/special_drawable/trajectory_drawable/trajectory_drawable.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/16_drawable/special_drawable/trajectory_drawable/trajectory_drawable.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\16_drawable\\triangles_drawable\\triangles_drawable.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\16_drawable\\triangles_drawable\\triangles_drawable.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/16_drawable/triangles_drawable/triangles_drawable.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/16_drawable/triangles_drawable/triangles_drawable.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\17_timer\\timer_basic\\timer_basic.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\17_timer\\timer_basic\\timer_basic.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/17_timer/timer_basic/timer_basic.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/17_timer/timer_basic/timer_basic.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\17_timer\\timer_event_periodic\\timer_event_periodic.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\17_timer\\timer_event_periodic\\timer_event_periodic.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/17_timer/timer_event_periodic/timer_event_periodic.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/17_timer/timer_event_periodic/timer_event_periodic.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\17_timer\\timer_fps\\timer_fps.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\17_timer\\timer_fps\\timer_fps.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/17_timer/timer_fps/timer_fps.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/17_timer/timer_fps/timer_fps.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\17_timer\\timer_interval\\timer_interval.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\17_timer\\timer_interval\\timer_interval.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/17_timer/timer_interval/timer_interval.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/17_timer/timer_interval/timer_interval.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\18_user_interactions\\picking\\picking_plane\\picking_plane.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\18_user_interactions\\picking\\picking_plane\\picking_plane.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/18_user_interactions/picking/picking_plane/picking_plane.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/18_user_interactions/picking/picking_plane/picking_plane.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\18_user_interactions\\picking\\picking_spheres\\picking_spheres.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\18_user_interactions\\picking\\picking_spheres\\picking_spheres.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/18_user_interactions/picking/picking_spheres/picking_spheres.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/18_user_interactions/picking/picking_spheres/picking_spheres.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\18_user_interactions\\picking\\picking_structure\\picking_structure.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\18_user_interactions\\picking\\picking_structure\\picking_structure.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/18_user_interactions/picking/picking_structure/picking_structure.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/18_user_interactions/picking/picking_structure/picking_structure.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\18_user_interactions\\tracker\\velocity_tracker\\velocity_tracker.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\18_user_interactions\\tracker\\velocity_tracker\\velocity_tracker.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/18_user_interactions/tracker/velocity_tracker/velocity_tracker.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/18_user_interactions/tracker/velocity_tracker/velocity_tracker.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\d8939bd704234a7ec62a1c8d244682ba\\cgp\\library\\cgp\\19_camera_controller\\camera_controller_2d_displacement\\camera_controller_2d_displacement.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\19_camera_controller\\camera_controller_2d_displacement\\camera_controller_2d_displacement.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/19_camera_controller/camera_controller_2d_displacement/camera_controller_2d_displacement.cpp",
+  "output": "CMakeFiles/project.dir/d8939bd704234a7ec62a1c8d244682ba/cgp/library/cgp/19_camera_controller/camera_controller_2d_displacement/camera_controller_2d_displacement.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\19_camera_controller\\camera_controller_first_person\\camera_controller_first_person.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\19_camera_controller\\camera_controller_first_person\\camera_controller_first_person.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/19_camera_controller/camera_controller_first_person/camera_controller_first_person.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/19_camera_controller/camera_controller_first_person/camera_controller_first_person.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\653e951a8b4929405e1f80e2efb3059f\\library\\cgp\\19_camera_controller\\camera_controller_first_person_euler\\camera_controller_first_person_euler.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\19_camera_controller\\camera_controller_first_person_euler\\camera_controller_first_person_euler.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/19_camera_controller/camera_controller_first_person_euler/camera_controller_first_person_euler.cpp",
+  "output": "CMakeFiles/project.dir/653e951a8b4929405e1f80e2efb3059f/library/cgp/19_camera_controller/camera_controller_first_person_euler/camera_controller_first_person_euler.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\19_camera_controller\\camera_controller_fly_mode\\camera_controller_fly_mode.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\19_camera_controller\\camera_controller_fly_mode\\camera_controller_fly_mode.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/19_camera_controller/camera_controller_fly_mode/camera_controller_fly_mode.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/19_camera_controller/camera_controller_fly_mode/camera_controller_fly_mode.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\19_camera_controller\\camera_controller_generic_base\\camera_controller_generic_base.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\19_camera_controller\\camera_controller_generic_base\\camera_controller_generic_base.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/19_camera_controller/camera_controller_generic_base/camera_controller_generic_base.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/19_camera_controller/camera_controller_generic_base/camera_controller_generic_base.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\19_camera_controller\\camera_controller_orbit\\camera_controller_orbit.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\19_camera_controller\\camera_controller_orbit\\camera_controller_orbit.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/19_camera_controller/camera_controller_orbit/camera_controller_orbit.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/19_camera_controller/camera_controller_orbit/camera_controller_orbit.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\19_camera_controller\\camera_controller_orbit_euler\\camera_controller_orbit_euler.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\19_camera_controller\\camera_controller_orbit_euler\\camera_controller_orbit_euler.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/19_camera_controller/camera_controller_orbit_euler/camera_controller_orbit_euler.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/19_camera_controller/camera_controller_orbit_euler/camera_controller_orbit_euler.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\19_camera_controller\\test\\test_camera_controller.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\19_camera_controller\\test\\test_camera_controller.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/19_camera_controller/test/test_camera_controller.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/19_camera_controller/test/test_camera_controller.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\20_format_parser\\mesh_loader\\obj\\obj.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\20_format_parser\\mesh_loader\\obj\\obj.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/20_format_parser/mesh_loader/obj/obj.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/20_format_parser/mesh_loader/obj/obj.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\20_format_parser\\mesh_loader\\obj_advanced\\obj_advanced.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\20_format_parser\\mesh_loader\\obj_advanced\\obj_advanced.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/20_format_parser/mesh_loader/obj_advanced/obj_advanced.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/20_format_parser/mesh_loader/obj_advanced/obj_advanced.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\21_scene_project_helper\\path\\path.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\cgp\\21_scene_project_helper\\path\\path.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/21_scene_project_helper/path/path.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp/21_scene_project_helper/path/path.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\glad\\opengl33\\glad.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\glad\\opengl33\\glad.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/glad/opengl33/glad.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/glad/opengl33/glad.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\glad\\opengl41\\glad.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\glad\\opengl41\\glad.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/glad/opengl41/glad.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/glad/opengl41/glad.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\glad\\opengl43\\glad.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\glad\\opengl43\\glad.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/glad/opengl43/glad.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/glad/opengl43/glad.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\glad\\opengl46\\glad.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\glad\\opengl46\\glad.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/glad/opengl46/glad.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/glad/opengl46/glad.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\imgui\\imgui.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\imgui\\imgui.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/imgui/imgui.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/imgui/imgui.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\imgui\\imgui_demo.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\imgui\\imgui_demo.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/imgui/imgui_demo.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/imgui/imgui_demo.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\imgui\\imgui_draw.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\imgui\\imgui_draw.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/imgui/imgui_draw.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/imgui/imgui_draw.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\imgui\\imgui_impl_glfw.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\imgui\\imgui_impl_glfw.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/imgui/imgui_impl_glfw.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/imgui/imgui_impl_glfw.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\imgui\\imgui_impl_opengl3.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\imgui\\imgui_impl_opengl3.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/imgui/imgui_impl_opengl3.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/imgui/imgui_impl_opengl3.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\imgui\\imgui_widgets.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\imgui\\imgui_widgets.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/imgui/imgui_widgets.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/imgui/imgui_widgets.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\jpeg\\jpgd.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\jpeg\\jpgd.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/jpeg/jpgd.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/jpeg/jpgd.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\jpeg\\jpge.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\jpeg\\jpge.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/jpeg/jpge.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/jpeg/jpge.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\lodepng\\lodepng.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\lodepng\\lodepng.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/lodepng/lodepng.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/lodepng/lodepng.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\C_\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\simplexnoise\\simplexnoise1234.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\cgp\\library\\third_party\\src\\simplexnoise\\simplexnoise1234.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/simplexnoise/simplexnoise1234.cpp",
+  "output": "CMakeFiles/project.dir/C_/Users/azizb/Documents/GitHub/P3gproject/cgp/library/third_party/src/simplexnoise/simplexnoise1234.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\src\\environment.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\projectINFgraphique\\project\\src\\environment.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/src/environment.cpp",
+  "output": "CMakeFiles/project.dir/src/environment.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\src\\main.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\projectINFgraphique\\project\\src\\main.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/src/main.cpp",
+  "output": "CMakeFiles/project.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DCGP_OPENGL_3_3 -DIMGUI_IMPL_OPENGL_LOADER_GLAD -DSOLUTION @CMakeFiles/project.dir/includes_CXX.rsp -O2 -g -DNDEBUG -o CMakeFiles\\project.dir\\src\\scene.cpp.obj -c C:\\Users\\azizb\\Documents\\GitHub\\P3gproject\\projectINFgraphique\\project\\src\\scene.cpp",
+  "file": "C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/src/scene.cpp",
+  "output": "CMakeFiles/project.dir/src/scene.cpp.obj"
+}
+]
