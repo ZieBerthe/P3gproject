@@ -38,7 +38,14 @@ struct scene_structure : cgp::scene_inputs_generic {
 
 	timer_basic timer;
 
-	mesh_drawable terrain;
+	const int NB_CHUNSKS = 10;
+	const int RENDER_DISTANCE = 2;
+	const float CHUNKS_LENGTH = 5.0f;
+
+	vec3 CAMERA_POS_START = { 10.0f, 10.0f, 10.0f };
+
+	mesh* chunks;
+	mesh_drawable* chunks_draw;
 	mesh_drawable water;
 	mesh_drawable tree;
 	mesh_drawable cube1;

@@ -32,7 +32,7 @@ void scene_structure::initialize()
 	camera_control.set_rotation_axis_z(); // camera rotates around z-axis
 	//   look_at(camera_position, targeted_point, up_direction)
 	camera_control.look_at(
-		{ 5.0f, -4.0f, 3.5f } /* position of the camera in the 3D scene */,
+		CAMERA_POS_START /* position of the camera in the 3D scene */,
 		{0,0,0} /* targeted point in 3D scene */,
 		{0,0,1} /* direction of the "up" vector */);
 
@@ -44,13 +44,20 @@ void scene_structure::initialize()
 
 	// Create the shapes seen in the 3D scene
 	// ********************************************** //
-
-	float L = 5.0f;
-	mesh terrain_mesh = mesh_primitive_grid({ -L,-L,0 }, { L,-L,0 }, { L,L,0 }, { -L,L,0 }, 100, 100);
-	deform_terrain(terrain_mesh);
-	terrain.initialize_data_on_gpu(terrain_mesh);
-	terrain.texture.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sand.jpg");
-
+	chunks = new mesh[NB_CHUNSKS*NB_CHUNSKS];
+	chunks_draw = new mesh_drawable[NB_CHUNSKS*NB_CHUNSKS];
+	for(int ichunk = 0 ; ichunk < NB_CHUNSKS ; ichunk++)
+	{
+		for(int jchunk = 0 ; jchunk < NB_CHUNSKS ; jchunk++)
+		{
+			float x = ichunk*CHUNKS_LENGTH;
+			float y = jchunk*CHUNKS_LENGTH;
+			chunks[ichunk*NB_CHUNSKS+jchunk] = mesh_primitive_grid({ x,y,0 }, { x+CHUNKS_LENGTH,y,0 }, { x+CHUNKS_LENGTH,y+CHUNKS_LENGTH,0 }, { x,y+CHUNKS_LENGTH,0 }, 100, 100);
+			chunks_draw[ichunk*NB_CHUNSKS+jchunk].initialize_data_on_gpu(chunks[ichunk*NB_CHUNSKS+jchunk]);
+			chunks_draw[ichunk*NB_CHUNSKS+jchunk].texture.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sand.jpg", GL_REPEAT, GL_REPEAT);
+		}
+		
+	}
 	float sea_w = 8.0;
 	float sea_z = -0.8f;
 	water.initialize_data_on_gpu(mesh_primitive_grid({ -sea_w,-sea_w,sea_z }, { sea_w,-sea_w,sea_z }, { sea_w,sea_w,sea_z }, { -sea_w,sea_w,sea_z }));
@@ -87,7 +94,23 @@ void scene_structure::display_frame()
 	
 
 	// Draw all the shapes
-	draw(terrain, environment);
+	// calculate chunk in which the cam is located
+	int icam = int(camera_control.camera_model.position().x / CHUNKS_LENGTH);
+	int jcam = int(camera_control.camera_model.position().y / CHUNKS_LENGTH);
+	// draw chunks in render distance for each direction
+	for (int ichunk = -RENDER_DISTANCE; ichunk <= RENDER_DISTANCE; ++ichunk)
+	{
+		for (int jchunk = -RENDER_DISTANCE; jchunk <= RENDER_DISTANCE; ++jchunk)
+		{
+			int ichunk_pos = icam + ichunk;
+			int jchunk_pos = jcam + jchunk;
+			if (ichunk_pos >= 0 && ichunk_pos < NB_CHUNSKS && jchunk_pos >= 0 && jchunk_pos < NB_CHUNSKS)
+			{
+				draw(chunks_draw[ichunk_pos*NB_CHUNSKS+jchunk_pos], environment);
+			}
+		}
+	}
+
 	draw(water, environment);
 	draw(tree, environment);
 	draw(cube1, environment);
@@ -98,7 +121,6 @@ void scene_structure::display_frame()
 	draw(cube2, environment);
 
 	if (gui.display_wireframe) {
-		draw_wireframe(terrain, environment);
 		draw_wireframe(water, environment);
 		draw_wireframe(tree, environment);
 		draw_wireframe(cube1, environment);
