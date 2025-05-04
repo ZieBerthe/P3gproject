@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/Users/azizb/Documents/GitHub/P3gproject/project/include",
+                "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library",
+                "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/library/cgp",
+                "C:/Users/azizb/Documents/GitHub/P3gproject/cgp/examples/example_compilation/src"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "windowsSdkVersion": "10.0.22621.0",
+            "compilerPath": "cl.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-msvc-x64"
+        }
+    ],
+    "version": 4
+}

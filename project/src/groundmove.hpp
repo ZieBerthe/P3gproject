@@ -1,7 +1,7 @@
 #pragma once
 
 #include "cgp/cgp.hpp"
-
+using namespace cgp;
 struct GroundMove
 {
     vec3 position;

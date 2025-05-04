@@ -2,7 +2,7 @@
 #include "groundmove.hpp"
 
 
-using namespace cgp;
+
 
 void deform_terrain(mesh& m)
 {
@@ -30,6 +30,9 @@ void scene_structure::initialize()
 	// Set the behavior of the camera and its initial position
 	// ********************************************** //
 	camera_control.initialize(inputs, window); 
+	// mettre la vitesse de marche et celle de course
+
+	camera_control.configure_speed(2.0f, 15.0f); // speed of the camera
 	camera_control.set_rotation_axis_z(); // camera rotates around z-axis
 	//   look_at(camera_position, targeted_point, up_direction)
 	camera_control.look_at(
@@ -173,6 +176,7 @@ void scene_structure::display_info()
 
 	std::cout << "\nSCENE INFO:" << std::endl;
 	std::cout << "-----------------------------------------------" << std::endl;
+	std::cout << "press shift +c for mouse control, shift +f for full screen mode" << std::endl;
 	std::cout << "Display here the information you would like to appear at the start of the program on the command line (file scene.cpp, function display_info())." << std::endl;
 	std::cout << "-----------------------------------------------\n" << std::endl;
 }

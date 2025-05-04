@@ -1,5 +1,5 @@
 #include "groundmove.hpp"
-
+using namespace cgp;
 void GroundMove::apply_frame_to_chunk(mesh& chunk)
 {
     for (int k = 0; k < chunk.position.size(); ++k)

@@ -266,6 +266,8 @@ void keyboard_callback(GLFWwindow* window, int key, int scancode, int action, in
 		scene.inputs.keyboard.update_from_glfw_key(key, action);
 		scene.keyboard_event();
 
+		// press w to move the camera forward
+
 		// Press 'F' for full screen mode
 		if (key == GLFW_KEY_F && action == GLFW_PRESS && scene.inputs.keyboard.shift) {
 			scene.window.is_full_screen = !scene.window.is_full_screen;
