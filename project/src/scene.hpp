@@ -38,12 +38,12 @@ struct scene_structure : cgp::scene_inputs_generic {
 	// ****************************** //
 
 	timer_basic timer;
-
+	
 	const int NB_CHUNSKS = 10;
 	const int RENDER_DISTANCE = 2;
 	const float CHUNKS_LENGTH = 5.0f;
 
-	vec3 CAMERA_POS_START = { 1.0f, 10.0f, 1.0f };
+	vec3 CAMERA_POS_START = { 1.0f, 10.0f, 10.0f };
 
 	mesh* chunks;
 	mesh_drawable* chunks_draw;

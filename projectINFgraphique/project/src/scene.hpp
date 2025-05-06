@@ -23,7 +23,7 @@ struct scene_structure : cgp::scene_inputs_generic {
 	// ****************************** //
 	// Elements and shapes of the scene
 	// ****************************** //
-	camera_controller_orbit_euler camera_control;
+	
 	camera_projection_perspective camera_projection;
 	window_structure window;
 
@@ -32,6 +32,7 @@ struct scene_structure : cgp::scene_inputs_generic {
 	input_devices inputs;                // Storage for inputs status (mouse, keyboard, window dimension)
 	gui_parameters gui;                  // Standard GUI element storage
 	
+	camera_controller_2d_displacement camera_control;
 	// ****************************** //
 	// Elements and shapes of the scene
 	// ****************************** //

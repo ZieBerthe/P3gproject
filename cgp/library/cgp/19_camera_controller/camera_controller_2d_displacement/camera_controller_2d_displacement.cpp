@@ -37,7 +37,11 @@ namespace cgp
 
 		update(camera_matrix_view);
 	}
-
+	void camera_controller_2d_displacement::configure_speed(float speed, float run)
+	{
+		n_speed = speed;
+		run_speed = run;
+	}
 	void camera_controller_2d_displacement::idle_frame(mat4& camera_matrix_view)
 	{
 		// Preconditions
@@ -45,7 +49,7 @@ namespace cgp
 		assert_cgp_no_msg(window != nullptr);
 		if (!is_active) return;
 
-		float magnitude = 1.5f * inputs->time_interval;
+		float magnitude = n_speed* inputs->time_interval;
 
 		vec3 const& up = camera_model.axis_of_rotation;
 		vec3 const& front = camera_model.front();
@@ -53,7 +57,7 @@ namespace cgp
 
 		// run mode
 		if (inputs->keyboard.shift)
-			magnitude = 3.0f * magnitude;
+			magnitude = run_speed * magnitude;
 
 		// Constraint displacement on the plane
 		vec3 move_front = front - dot(front, up) * up;

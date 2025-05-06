@@ -1,6 +1,6 @@
 #include "scene.hpp"
 #include "groundmove.hpp"
-
+#include "gravity.hpp"
 
 
 
@@ -96,7 +96,7 @@ void scene_structure::display_frame()
 	if (gui.display_frame)
 		draw(global_frame, environment);
 	
-
+	
 	// Draw all the shapes
 	// calculate chunk in which the cam is located
 	int icam = int(camera_control.camera_model.position().x / CHUNKS_LENGTH);
@@ -163,6 +163,8 @@ void scene_structure::keyboard_event()
 void scene_structure::idle_frame()
 {
 	camera_control.idle_frame(environment.camera_view);
+	if (camera_control.camera_model.position_camera.z > 1.5f) camera_control.camera_model.position_camera += { 0.0f, 0.0f, -0.1f };
+	std::cout << "Camera position:" << camera_control.camera_model.position_camera << std::endl;
 }
 
 
