@@ -26,7 +26,7 @@ void deform_terrain(mesh& m)
 void scene_structure::initialize()
 {
 	std::cout << "Start function scene_structure::initialize()" << std::endl;
-
+	
 	// Set the behavior of the camera and its initial position
 	// ********************************************** //
 	camera_control.initialize(inputs, window); 
@@ -44,7 +44,10 @@ void scene_structure::initialize()
 	display_info();
 	// Create the global (x,y,z) frame
 	global_frame.initialize_data_on_gpu(mesh_primitive_frame());
-
+	//gravity shit
+	gravity.mass = 1.0f; // Set the mass of the object
+    gravity.pesanteur = {0, 0, 1.0f}; // Set the gravity vector
+    gravity.k = 0.1f; // Set the resistance coefficient
 
 	// Create the shapes seen in the 3D scene
 	// ********************************************** //
@@ -91,7 +94,13 @@ void scene_structure::display_frame()
 
 	// Update time
 	timer.update();
-
+	if (is_falling == false) {
+		std::cout << "nottt t thsahfdahFalling" << std::endl;
+		//std::cout << "Time passing " << timer.t << std::endl;
+		std::cout << "Time " << time_falling << std::endl;
+		time_falling = timer.t;
+	}
+	
 	// conditional display of the global frame (set via the GUI)
 	if (gui.display_frame)
 		draw(global_frame, environment);
@@ -163,7 +172,26 @@ void scene_structure::keyboard_event()
 void scene_structure::idle_frame()
 {
 	camera_control.idle_frame(environment.camera_view);
-	if (camera_control.camera_model.position_camera.z > 1.5f) camera_control.camera_model.position_camera += { 0.0f, 0.0f, -0.1f };
+	if (camera_control.camera_model.position_camera.z <= 1.5f){
+		camera_control.camera_model.position_camera.z = 1.5f;
+		is_falling = false;
+	}
+	
+	if (camera_control.camera_model.position_camera.z > 1.5f) {
+		if (is_falling == false) {
+			
+			std::cout << "Falling" << std::endl;
+			std::cout << "Time passing " << timer.t << std::endl;
+			std::cout << "Time " << std::endl;
+			}
+		is_falling = true;
+		std::cout<< "Falling" << std::endl;
+		std::cout << "Time " << timer.t << std::endl;
+		std::cout << "Time fdfadafeg " << time_falling << std::endl;
+		std::cout << "Time falling: " << timer.t - time_falling << std::endl;
+		gravity.apply_gravity(camera_control, timer.t - time_falling);
+	}
+
 	std::cout << "Camera position:" << camera_control.camera_model.position_camera << std::endl;
 }
 

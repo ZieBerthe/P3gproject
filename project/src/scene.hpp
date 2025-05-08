@@ -1,6 +1,6 @@
 #pragma once
 
-
+#include "gravity.hpp"
 #include "cgp/cgp.hpp"
 #include "environment.hpp"
 
@@ -36,7 +36,7 @@ struct scene_structure : cgp::scene_inputs_generic {
 	// ****************************** //
 	// Elements and shapes of the scene
 	// ****************************** //
-
+	Gravity gravity;
 	timer_basic timer;
 	
 	const int NB_CHUNSKS = 10;
@@ -52,7 +52,8 @@ struct scene_structure : cgp::scene_inputs_generic {
 	mesh_drawable cube1;
 	mesh_drawable cube2;
 
-
+	bool is_falling = false;
+	float time_falling = 0.0f;
 	// ****************************** //
 	// Functions
 	// ****************************** //
