@@ -3,7 +3,7 @@
 #include "gravity.hpp"
 #include "cgp/cgp.hpp"
 #include "environment.hpp"
-
+#include "heightgeneration.hpp"
 // This definitions allow to use the structures: mesh, mesh_drawable, etc. without mentionning explicitly cgp::
 using cgp::mesh;
 using cgp::mesh_drawable;
@@ -38,7 +38,7 @@ struct scene_structure : cgp::scene_inputs_generic {
 	// ****************************** //
 	Gravity gravity;
 	timer_basic timer;
-	
+	HeightsGenerator height_generator;
 	const int NB_CHUNSKS = 10;
 	const int RENDER_DISTANCE = 2;
 	const float CHUNKS_LENGTH = 5.0f;

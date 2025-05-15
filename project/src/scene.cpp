@@ -1,24 +1,22 @@
 #include "scene.hpp"
 #include "groundmove.hpp"
 #include "gravity.hpp"
+#include "heightgeneration.hpp"
+#include "heightgeneration.cpp"
 
-
-
-void deform_terrain(mesh& m)
+void deform_terrain(mesh& m, HeightsGenerator& height_generator)
 {
-	// Set the terrain to have a gaussian shape
-	for (int k = 0; k < m.position.size(); ++k)
-	{
-		vec3& p = m.position[k];
-		float d2 = p.x*p.x + p.y * p.y;
-		float z = exp(-d2 / 4)-1;
-
-		z = z + 0.05f*noise_perlin({ p.x,p.y });
-
-		p = { p.x, p.y, z };
-	}
-
-	m.normal_update();
+    for (int k = 0; k < m.position.size(); ++k)
+    {
+        vec3& p = m.position[k];
+        // Compute world coordinates for seamless relief
+        float world_x = p.x;
+        float world_y = p.y;
+		float new_z = height_generator.generateHeight(world_x, world_y);
+        // float z = 0.2f * exp(-( (world_x)*(world_x) + (world_y )*(world_y) ) / 40.0f);
+        p = { p.x, p.y, new_z};
+    }
+    m.normal_update();
 }
 
 // This function is called only once at the beginning of the program
@@ -45,21 +43,24 @@ void scene_structure::initialize()
 	// Create the global (x,y,z) frame
 	global_frame.initialize_data_on_gpu(mesh_primitive_frame());
 	//gravity shit
-	gravity.mass = 1.0f; // Set the mass of the object
-    gravity.pesanteur = {0, 0, 1.0f}; // Set the gravity vector
-    gravity.k = 0.1f; // Set the resistance coefficient
+	// gravity.mass = 1.0f; // Set the mass of the object
+    // gravity.pesanteur = {0, 0, 1.0f}; // Set the gravity vector
+    // gravity.k = 0.1f; // Set the resistance coefficient
 
 	// Create the shapes seen in the 3D scene
 	// ********************************************** //
 	chunks = new mesh[NB_CHUNSKS*NB_CHUNSKS];
 	chunks_draw = new mesh_drawable[NB_CHUNSKS*NB_CHUNSKS];
+	// TODO: Apply terrain deformation to each chunk after creation
+	//TODO : change the number of triangles according to the distance from the camera
 	for(int ichunk = 0 ; ichunk < NB_CHUNSKS ; ichunk++)
 	{
 		for(int jchunk = 0 ; jchunk < NB_CHUNSKS ; jchunk++)
 		{
 			float x = ichunk*CHUNKS_LENGTH;
 			float y = jchunk*CHUNKS_LENGTH;
-			chunks[ichunk*NB_CHUNSKS+jchunk] = mesh_primitive_grid({ x,y,0 }, { x+CHUNKS_LENGTH,y,0 }, { x+CHUNKS_LENGTH,y+CHUNKS_LENGTH,0 }, { x,y+CHUNKS_LENGTH,0 }, 100, 100);
+			chunks[ichunk*NB_CHUNSKS+jchunk] = mesh_primitive_grid({ x,y,0 }, { x+CHUNKS_LENGTH,y,0 }, { x+CHUNKS_LENGTH,y+CHUNKS_LENGTH,0 }, { x,y+CHUNKS_LENGTH,0 }, 50, 50);
+			deform_terrain(chunks[ichunk*NB_CHUNSKS+jchunk], height_generator);
 			chunks_draw[ichunk*NB_CHUNSKS+jchunk].initialize_data_on_gpu(chunks[ichunk*NB_CHUNSKS+jchunk]);
 			chunks_draw[ichunk*NB_CHUNSKS+jchunk].texture.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sand.jpg", GL_REPEAT, GL_REPEAT);
 		}
@@ -120,6 +121,10 @@ void scene_structure::display_frame()
 			if (ichunk_pos >= 0 && ichunk_pos < NB_CHUNSKS && jchunk_pos >= 0 && jchunk_pos < NB_CHUNSKS)
 			{
 				draw(chunks_draw[ichunk_pos*NB_CHUNSKS+jchunk_pos], environment);
+				if(gui.display_wireframe)
+				{
+					draw_wireframe(chunks_draw[ichunk_pos*NB_CHUNSKS+jchunk_pos], environment);
+				}
 			}
 		}
 	}
@@ -176,7 +181,10 @@ void scene_structure::idle_frame()
 		camera_control.camera_model.position_camera.z = 1.5f;
 		is_falling = false;
 	}
-	
+	if (inputs.keyboard.is_pressed('e')) {
+		camera_control.camera_model.position_camera.z += 1.0f;
+	}
+	else{
 	if (camera_control.camera_model.position_camera.z > 1.5f) {
 		if (is_falling == false) {
 			
@@ -190,6 +198,7 @@ void scene_structure::idle_frame()
 		std::cout << "Time fdfadafeg " << time_falling << std::endl;
 		std::cout << "Time falling: " << timer.t - time_falling << std::endl;
 		gravity.apply_gravity(camera_control, timer.t - time_falling);
+	}
 	}
 
 	std::cout << "Camera position:" << camera_control.camera_model.position_camera << std::endl;
