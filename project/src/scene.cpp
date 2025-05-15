@@ -177,15 +177,16 @@ void scene_structure::keyboard_event()
 void scene_structure::idle_frame()
 {
 	camera_control.idle_frame(environment.camera_view);
-	if (camera_control.camera_model.position_camera.z <= 1.5f){
-		camera_control.camera_model.position_camera.z = 1.5f;
+	float pos = 0.5f+ height_generator.generateHeight(camera_control.camera_model.position_camera.x, camera_control.camera_model.position_camera.y);
+	if (camera_control.camera_model.position_camera.z <= pos){
+		camera_control.camera_model.position_camera.z = pos;
 		is_falling = false;
 	}
 	if (inputs.keyboard.is_pressed('e')) {
 		camera_control.camera_model.position_camera.z += 1.0f;
 	}
 	else{
-	if (camera_control.camera_model.position_camera.z > 1.5f) {
+	if (camera_control.camera_model.position_camera.z >pos) {
 		if (is_falling == false) {
 			
 			std::cout << "Falling" << std::endl;

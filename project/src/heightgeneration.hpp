@@ -10,8 +10,8 @@ public:
 
 private:
     static constexpr float AMPLITUDE = 10.0f;
-    static constexpr int OCTAVES = 3;
-    static constexpr float ROUGHNESS = 0.3f;
+    static constexpr int OCTAVES = 5;
+    static constexpr float ROUGHNESS = 0.5f;
 
     std::mt19937 random;
     int seed;

@@ -3,8 +3,8 @@
 #include <limits>
 #include <random>
 
-const int OCTAVES = 4;
-const float ROUGHNESS = 0.3f;
+const int OCTAVES = 5;
+const float ROUGHNESS = 0.8f;
 const float AMPLITUDE = 10.0f;
 
 HeightsGenerator::HeightsGenerator() {
