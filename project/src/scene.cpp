@@ -50,6 +50,9 @@ void scene_structure::initialize()
 	// ********************************************** //
 	chunks = new mesh[NB_CHUNSKS*NB_CHUNSKS];
 	chunks_draw = new mesh_drawable[NB_CHUNSKS*NB_CHUNSKS];
+
+	texture_terrain.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sand.jpg", GL_REPEAT, GL_REPEAT);
+	texture_water.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sea.png", GL_REPEAT, GL_REPEAT);
 	// TODO: Apply terrain deformation to each chunk after creation
 	//TODO : change the number of triangles according to the distance from the camera
 	for(int ichunk = 0 ; ichunk < NB_CHUNSKS ; ichunk++)
@@ -61,21 +64,14 @@ void scene_structure::initialize()
 			chunks[ichunk*NB_CHUNSKS+jchunk] = mesh_primitive_grid({ x,y,0 }, { x+CHUNKS_LENGTH,y,0 }, { x+CHUNKS_LENGTH,y+CHUNKS_LENGTH,0 }, { x,y+CHUNKS_LENGTH,0 }, CHUNKS_DIV, CHUNKS_DIV);
 			deform_terrain(chunks[ichunk*NB_CHUNSKS+jchunk], height_generator);
 			chunks_draw[ichunk*NB_CHUNSKS+jchunk].initialize_data_on_gpu(chunks[ichunk*NB_CHUNSKS+jchunk]);
-			chunks_draw[ichunk*NB_CHUNSKS+jchunk].texture.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sand.jpg", GL_REPEAT, GL_REPEAT);
+			chunks_draw[ichunk*NB_CHUNSKS+jchunk].texture = texture_terrain;
 		}
 		
 	}
 	float sea_w = 8.0;
 	float sea_z = -0.8f;
 	water.initialize_data_on_gpu(mesh_primitive_grid({ -sea_w,-sea_w,sea_z }, { sea_w,-sea_w,sea_z }, { sea_w,sea_w,sea_z }, { -sea_w,sea_w,sea_z }));
-	water.texture.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sea.png");
-
-	cube1.initialize_data_on_gpu(mesh_primitive_cube({ 0,0,0 }, 0.5f));
-	cube1.model.rotation = rotation_transform::from_axis_angle({ -1,1,0 }, Pi / 7.0f);
-	cube1.model.translation = { 1.0f,1.0f,-0.1f };
-	cube1.texture.load_and_initialize_texture_2d_on_gpu(project::path + "assets/wood.jpg");
-
-	cube2 = cube1;
+	water.texture = texture_water;
 
 }
 
@@ -125,17 +121,8 @@ void scene_structure::display_frame()
 	}
 
 	draw(water, environment);
-	draw(cube1, environment);
-
-	// Animate the second cube in the water
-	cube2.model.translation = { -1.0f, 6.0f+0.1*sin(0.5f*timer.t), -0.8f + 0.1f * cos(0.5f * timer.t)};
-	cube2.model.rotation = rotation_transform::from_axis_angle({1,-0.2,0},Pi/12.0f*sin(0.5f*timer.t));
-	draw(cube2, environment);
-
 	if (gui.display_wireframe) {
 		draw_wireframe(water, environment);
-		draw_wireframe(cube1, environment);
-		draw_wireframe(cube2, environment);
 	}
 	
 

@@ -49,8 +49,10 @@ struct scene_structure : cgp::scene_inputs_generic {
 	mesh* chunks;
 	mesh_drawable* chunks_draw;
 	mesh_drawable water;
-	mesh_drawable cube1;
-	mesh_drawable cube2;
+
+	opengl_texture_image_structure texture_terrain;
+	opengl_texture_image_structure texture_water;
+
 
 	bool is_falling = false;
 	float time_falling = 0.0f;
