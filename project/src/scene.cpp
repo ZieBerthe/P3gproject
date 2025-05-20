@@ -48,23 +48,21 @@ void scene_structure::initialize()
 
 	// Create the shapes seen in the 3D scene
 	// ********************************************** //
-	chunks = new mesh[NB_CHUNSKS*NB_CHUNSKS];
-	chunks_draw = new mesh_drawable[NB_CHUNSKS*NB_CHUNSKS];
+	chunks = new mesh[NB_CHUNKS*NB_CHUNKS];
+	chunks_draw = new mesh_drawable[NB_CHUNKS*NB_CHUNKS];
 
 	texture_terrain.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sand.jpg", GL_REPEAT, GL_REPEAT);
 	texture_water.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sea.png", GL_REPEAT, GL_REPEAT);
 	// TODO: Apply terrain deformation to each chunk after creation
 	//TODO : change the number of triangles according to the distance from the camera
-	for(int ichunk = 0 ; ichunk < NB_CHUNSKS ; ichunk++)
+	for(int ichunk = 0 ; ichunk < NB_CHUNKS ; ichunk++)
 	{
-		for(int jchunk = 0 ; jchunk < NB_CHUNSKS ; jchunk++)
+		for(int jchunk = 0 ; jchunk < NB_CHUNKS ; jchunk++)
 		{
-			float x = ichunk*CHUNKS_LENGTH;
-			float y = jchunk*CHUNKS_LENGTH;
-			chunks[ichunk*NB_CHUNSKS+jchunk] = mesh_primitive_grid({ x,y,0 }, { x+CHUNKS_LENGTH,y,0 }, { x+CHUNKS_LENGTH,y+CHUNKS_LENGTH,0 }, { x,y+CHUNKS_LENGTH,0 }, CHUNKS_DIV, CHUNKS_DIV);
-			deform_terrain(chunks[ichunk*NB_CHUNSKS+jchunk], height_generator);
-			chunks_draw[ichunk*NB_CHUNSKS+jchunk].initialize_data_on_gpu(chunks[ichunk*NB_CHUNSKS+jchunk]);
-			chunks_draw[ichunk*NB_CHUNSKS+jchunk].texture = texture_terrain;
+			chunks[ichunk*NB_CHUNKS+jchunk] = mesh_primitive_grid({ 0,0,0 }, { CHUNKS_LENGTH,0,0 }, { CHUNKS_LENGTH,CHUNKS_LENGTH,0 }, { 0,CHUNKS_LENGTH,0 }, CHUNKS_DIV, CHUNKS_DIV);
+			deform_terrain(chunks[ichunk*NB_CHUNKS+jchunk], height_generator);
+			chunks_draw[ichunk*NB_CHUNKS+jchunk].initialize_data_on_gpu(chunks[ichunk*NB_CHUNKS+jchunk]);
+			chunks_draw[ichunk*NB_CHUNKS+jchunk].texture = texture_terrain;
 		}
 		
 	}
@@ -102,20 +100,20 @@ void scene_structure::display_frame()
 	// calculate chunk in which the cam is located
 	int icam = int(camera_control.camera_model.position().x / CHUNKS_LENGTH);
 	int jcam = int(camera_control.camera_model.position().y / CHUNKS_LENGTH);
+	std::cout<<"starting chunk "<<icam<<" "<<jcam<<std::endl;
 	// draw chunks in render distance for each direction
-	for (int ichunk = -RENDER_DISTANCE; ichunk <= RENDER_DISTANCE; ++ichunk)
+	for (int ichunk = icam-RENDER_DISTANCE; ichunk <= icam+RENDER_DISTANCE; ++ichunk)
 	{
-		for (int jchunk = -RENDER_DISTANCE; jchunk <= RENDER_DISTANCE; ++jchunk)
+		for (int jchunk = jcam-RENDER_DISTANCE; jchunk <= jcam+RENDER_DISTANCE; ++jchunk)
 		{
-			int ichunk_pos = icam + ichunk;
-			int jchunk_pos = jcam + jchunk;
-			if (ichunk_pos >= 0 && ichunk_pos < NB_CHUNSKS && jchunk_pos >= 0 && jchunk_pos < NB_CHUNSKS)
+			int ichunk_pos = (ichunk+NB_CHUNKS)%NB_CHUNKS;
+			int jchunk_pos = (jchunk+NB_CHUNKS)%NB_CHUNKS;
+			std::cout<<"chunk "<<ichunk_pos<<" "<<jchunk_pos<<" "<<ichunk<<" "<<jchunk<<std::endl;
+			chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].model.translation = { ichunk*CHUNKS_LENGTH, jchunk*CHUNKS_LENGTH, 0 };
+			draw(chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos], environment);
+			if(gui.display_wireframe)
 			{
-				draw(chunks_draw[ichunk_pos*NB_CHUNSKS+jchunk_pos], environment);
-				if(gui.display_wireframe)
-				{
-					draw_wireframe(chunks_draw[ichunk_pos*NB_CHUNSKS+jchunk_pos], environment);
-				}
+				draw_wireframe(chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos], environment);
 			}
 		}
 	}
@@ -167,22 +165,10 @@ void scene_structure::idle_frame()
 	}
 	else{
 	if (camera_control.camera_model.position_camera.z >pos) {
-		if (is_falling == false) {
-			
-			std::cout << "Falling" << std::endl;
-			std::cout << "Time passing " << timer.t << std::endl;
-			std::cout << "Time " << std::endl;
-			}
 		is_falling = true;
-		std::cout<< "Falling" << std::endl;
-		std::cout << "Time " << timer.t << std::endl;
-		std::cout << "Time fdfadafeg " << time_falling << std::endl;
-		std::cout << "Time falling: " << timer.t - time_falling << std::endl;
 		gravity.apply_gravity(camera_control, timer.t - time_falling);
 	}
 	}
-
-	std::cout << "Camera position:" << camera_control.camera_model.position_camera << std::endl;
 }
 
 
