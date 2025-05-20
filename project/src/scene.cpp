@@ -2,7 +2,6 @@
 #include "groundmove.hpp"
 #include "gravity.hpp"
 #include "heightgeneration.hpp"
-#include "heightgeneration.cpp"
 
 void deform_terrain(mesh& m, HeightsGenerator& height_generator)
 {
@@ -59,7 +58,7 @@ void scene_structure::initialize()
 		{
 			float x = ichunk*CHUNKS_LENGTH;
 			float y = jchunk*CHUNKS_LENGTH;
-			chunks[ichunk*NB_CHUNSKS+jchunk] = mesh_primitive_grid({ x,y,0 }, { x+CHUNKS_LENGTH,y,0 }, { x+CHUNKS_LENGTH,y+CHUNKS_LENGTH,0 }, { x,y+CHUNKS_LENGTH,0 }, 50, 50);
+			chunks[ichunk*NB_CHUNSKS+jchunk] = mesh_primitive_grid({ x,y,0 }, { x+CHUNKS_LENGTH,y,0 }, { x+CHUNKS_LENGTH,y+CHUNKS_LENGTH,0 }, { x,y+CHUNKS_LENGTH,0 }, CHUNKS_DIV, CHUNKS_DIV);
 			deform_terrain(chunks[ichunk*NB_CHUNSKS+jchunk], height_generator);
 			chunks_draw[ichunk*NB_CHUNSKS+jchunk].initialize_data_on_gpu(chunks[ichunk*NB_CHUNSKS+jchunk]);
 			chunks_draw[ichunk*NB_CHUNSKS+jchunk].texture.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sand.jpg", GL_REPEAT, GL_REPEAT);
@@ -70,10 +69,6 @@ void scene_structure::initialize()
 	float sea_z = -0.8f;
 	water.initialize_data_on_gpu(mesh_primitive_grid({ -sea_w,-sea_w,sea_z }, { sea_w,-sea_w,sea_z }, { sea_w,sea_w,sea_z }, { -sea_w,sea_w,sea_z }));
 	water.texture.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sea.png");
-
-	tree.initialize_data_on_gpu(mesh_load_file_obj(project::path + "assets/palm_tree/palm_tree.obj"));
-	tree.model.rotation = rotation_transform::from_axis_angle({ 1,0,0 }, Pi / 2.0f);
-	tree.texture.load_and_initialize_texture_2d_on_gpu(project::path + "assets/palm_tree/palm_tree.jpg", GL_REPEAT, GL_REPEAT);
 
 	cube1.initialize_data_on_gpu(mesh_primitive_cube({ 0,0,0 }, 0.5f));
 	cube1.model.rotation = rotation_transform::from_axis_angle({ -1,1,0 }, Pi / 7.0f);
@@ -130,7 +125,6 @@ void scene_structure::display_frame()
 	}
 
 	draw(water, environment);
-	draw(tree, environment);
 	draw(cube1, environment);
 
 	// Animate the second cube in the water
@@ -140,7 +134,6 @@ void scene_structure::display_frame()
 
 	if (gui.display_wireframe) {
 		draw_wireframe(water, environment);
-		draw_wireframe(tree, environment);
 		draw_wireframe(cube1, environment);
 		draw_wireframe(cube2, environment);
 	}
