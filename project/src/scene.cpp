@@ -2,7 +2,7 @@
 #include "groundmove.hpp"
 #include "gravity.hpp"
 #include "heightgeneration.hpp"
-#include "heightgeneration.cpp"
+
 
 void deform_terrain(mesh& m, HeightsGenerator& height_generator)
 {
@@ -37,6 +37,16 @@ void scene_structure::initialize()
 		CAMERA_POS_START /* position of the camera in the 3D scene */,
 		{0,0,0} /* targeted point in 3D scene */,
 		{0,0,1} /* direction of the "up" vector */);
+	//skybox shit
+	image_structure image_skybox_template = image_load_file(project::path+"assets/stars_skybox.png");
+
+	// Split the image into a grid of 4 x 3 sub-images
+	std::vector<image_structure> image_grid = image_split_grid(image_skybox_template, 4, 3);
+
+
+	skybox.initialize_data_on_gpu();
+	skybox.texture.initialize_cubemap_on_gpu(image_grid[1], image_grid[7], image_grid[5], image_grid[3], image_grid[10], image_grid[4]);
+	// Look at skybox_debug.png to see the correspondance of the image index
 
 	// Display general information
 	display_info();
@@ -92,7 +102,9 @@ void scene_structure::display_frame()
 
 	// Set the light to the current position of the camera
 	environment.light = camera_control.camera_model.position();
-
+	glDepthMask(GL_FALSE); // disable depth-buffer writing
+	draw(skybox, environment);
+	glDepthMask(GL_TRUE);  // faut réactiver après avoir dessiné le skybox
 	// Update time
 	timer.update();
 	if (is_falling == false) {

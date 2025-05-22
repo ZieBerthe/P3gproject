@@ -54,6 +54,8 @@ struct scene_structure : cgp::scene_inputs_generic {
 
 	bool is_falling = false;
 	float time_falling = 0.0f;
+	//skybox shit
+	cgp::skybox_drawable skybox;
 	// ****************************** //
 	// Functions
 	// ****************************** //
