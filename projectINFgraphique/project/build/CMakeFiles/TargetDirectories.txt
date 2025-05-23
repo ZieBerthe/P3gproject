@@ -1,3 +1,0 @@
-C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build/CMakeFiles/project.dir
-C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build/CMakeFiles/edit_cache.dir
-C:/Users/azizb/Documents/GitHub/P3gproject/projectINFgraphique/project/build/CMakeFiles/rebuild_cache.dir

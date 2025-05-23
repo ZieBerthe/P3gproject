@@ -3,8 +3,7 @@
 #include "gravity.hpp"
 #include "heightgeneration.hpp"
 
-
-void deform_terrain(mesh& m, HeightsGenerator& height_generator)
+void deform_terrain(mesh& m, HeightsGenerator& height_generator, float xdecal, float ydecal)
 {
     for (int k = 0; k < m.position.size(); ++k)
     {
@@ -12,7 +11,7 @@ void deform_terrain(mesh& m, HeightsGenerator& height_generator)
         // Compute world coordinates for seamless relief
         float world_x = p.x;
         float world_y = p.y;
-		float new_z = height_generator.generateHeight(world_x, world_y);
+		float new_z = height_generator.generateHeight(world_x+xdecal, world_y+ydecal);
         // float z = 0.2f * exp(-( (world_x)*(world_x) + (world_y )*(world_y) ) / 40.0f);
         p = { p.x, p.y, new_z};
     }
@@ -59,38 +58,30 @@ void scene_structure::initialize()
 
 	// Create the shapes seen in the 3D scene
 	// ********************************************** //
-	chunks = new mesh[NB_CHUNSKS*NB_CHUNSKS];
-	chunks_draw = new mesh_drawable[NB_CHUNSKS*NB_CHUNSKS];
+	chunks = new mesh[NB_CHUNKS*NB_CHUNKS];
+	chunks_draw = new mesh_drawable[NB_CHUNKS*NB_CHUNKS];
+
+	texture_terrain.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sand.jpg", GL_REPEAT, GL_REPEAT);
+	texture_water.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sea.png", GL_REPEAT, GL_REPEAT);
 	// TODO: Apply terrain deformation to each chunk after creation
 	//TODO : change the number of triangles according to the distance from the camera
-	for(int ichunk = 0 ; ichunk < NB_CHUNSKS ; ichunk++)
+	for(int ichunk = 0 ; ichunk < NB_CHUNKS ; ichunk++)
 	{
-		for(int jchunk = 0 ; jchunk < NB_CHUNSKS ; jchunk++)
+		for(int jchunk = 0 ; jchunk < NB_CHUNKS ; jchunk++)
 		{
-			float x = ichunk*CHUNKS_LENGTH;
-			float y = jchunk*CHUNKS_LENGTH;
-			chunks[ichunk*NB_CHUNSKS+jchunk] = mesh_primitive_grid({ x,y,0 }, { x+CHUNKS_LENGTH,y,0 }, { x+CHUNKS_LENGTH,y+CHUNKS_LENGTH,0 }, { x,y+CHUNKS_LENGTH,0 }, 50, 50);
-			deform_terrain(chunks[ichunk*NB_CHUNSKS+jchunk], height_generator);
-			chunks_draw[ichunk*NB_CHUNSKS+jchunk].initialize_data_on_gpu(chunks[ichunk*NB_CHUNSKS+jchunk]);
-			chunks_draw[ichunk*NB_CHUNSKS+jchunk].texture.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sand.jpg", GL_REPEAT, GL_REPEAT);
+			chunks[ichunk*NB_CHUNKS+jchunk] = mesh_primitive_grid({ 0,0,0 }, { CHUNKS_LENGTH,0,0 }, { CHUNKS_LENGTH,CHUNKS_LENGTH,0 }, { 0,CHUNKS_LENGTH,0 }, CHUNKS_DIV, CHUNKS_DIV);
+			float xdecal = ichunk*CHUNKS_LENGTH;
+			float ydecal = jchunk*CHUNKS_LENGTH;
+			deform_terrain(chunks[ichunk*NB_CHUNKS+jchunk], height_generator, xdecal, ydecal);
+			chunks_draw[ichunk*NB_CHUNKS+jchunk].initialize_data_on_gpu(chunks[ichunk*NB_CHUNKS+jchunk]);
+			chunks_draw[ichunk*NB_CHUNKS+jchunk].texture = texture_terrain;
 		}
 		
 	}
 	float sea_w = 8.0;
 	float sea_z = -0.8f;
 	water.initialize_data_on_gpu(mesh_primitive_grid({ -sea_w,-sea_w,sea_z }, { sea_w,-sea_w,sea_z }, { sea_w,sea_w,sea_z }, { -sea_w,sea_w,sea_z }));
-	water.texture.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sea.png");
-
-	tree.initialize_data_on_gpu(mesh_load_file_obj(project::path + "assets/palm_tree/palm_tree.obj"));
-	tree.model.rotation = rotation_transform::from_axis_angle({ 1,0,0 }, Pi / 2.0f);
-	tree.texture.load_and_initialize_texture_2d_on_gpu(project::path + "assets/palm_tree/palm_tree.jpg", GL_REPEAT, GL_REPEAT);
-
-	cube1.initialize_data_on_gpu(mesh_primitive_cube({ 0,0,0 }, 0.5f));
-	cube1.model.rotation = rotation_transform::from_axis_angle({ -1,1,0 }, Pi / 7.0f);
-	cube1.model.translation = { 1.0f,1.0f,-0.1f };
-	cube1.texture.load_and_initialize_texture_2d_on_gpu(project::path + "assets/wood.jpg");
-
-	cube2 = cube1;
+	water.texture = texture_water;
 
 }
 
@@ -123,38 +114,27 @@ void scene_structure::display_frame()
 	// calculate chunk in which the cam is located
 	int icam = int(camera_control.camera_model.position().x / CHUNKS_LENGTH);
 	int jcam = int(camera_control.camera_model.position().y / CHUNKS_LENGTH);
+	std::cout<<"starting chunk "<<icam<<" "<<jcam<<std::endl;
 	// draw chunks in render distance for each direction
-	for (int ichunk = -RENDER_DISTANCE; ichunk <= RENDER_DISTANCE; ++ichunk)
+	for (int ichunk = icam-RENDER_DISTANCE; ichunk <= icam+RENDER_DISTANCE; ++ichunk)
 	{
-		for (int jchunk = -RENDER_DISTANCE; jchunk <= RENDER_DISTANCE; ++jchunk)
+		for (int jchunk = jcam-RENDER_DISTANCE; jchunk <= jcam+RENDER_DISTANCE; ++jchunk)
 		{
-			int ichunk_pos = icam + ichunk;
-			int jchunk_pos = jcam + jchunk;
-			if (ichunk_pos >= 0 && ichunk_pos < NB_CHUNSKS && jchunk_pos >= 0 && jchunk_pos < NB_CHUNSKS)
+			int ichunk_pos = (ichunk+NB_CHUNKS)%NB_CHUNKS;
+			int jchunk_pos = (jchunk+NB_CHUNKS)%NB_CHUNKS;
+			std::cout<<"chunk "<<ichunk_pos<<" "<<jchunk_pos<<" "<<ichunk<<" "<<jchunk<<std::endl;
+			chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].model.translation = { ichunk*CHUNKS_LENGTH, jchunk*CHUNKS_LENGTH, 0 };
+			draw(chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos], environment);
+			if(gui.display_wireframe)
 			{
-				draw(chunks_draw[ichunk_pos*NB_CHUNSKS+jchunk_pos], environment);
-				if(gui.display_wireframe)
-				{
-					draw_wireframe(chunks_draw[ichunk_pos*NB_CHUNSKS+jchunk_pos], environment);
-				}
+				draw_wireframe(chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos], environment);
 			}
 		}
 	}
 
 	draw(water, environment);
-	draw(tree, environment);
-	draw(cube1, environment);
-
-	// Animate the second cube in the water
-	cube2.model.translation = { -1.0f, 6.0f+0.1*sin(0.5f*timer.t), -0.8f + 0.1f * cos(0.5f * timer.t)};
-	cube2.model.rotation = rotation_transform::from_axis_angle({1,-0.2,0},Pi/12.0f*sin(0.5f*timer.t));
-	draw(cube2, environment);
-
 	if (gui.display_wireframe) {
 		draw_wireframe(water, environment);
-		draw_wireframe(tree, environment);
-		draw_wireframe(cube1, environment);
-		draw_wireframe(cube2, environment);
 	}
 	
 
@@ -199,22 +179,10 @@ void scene_structure::idle_frame()
 	}
 	else{
 	if (camera_control.camera_model.position_camera.z >pos) {
-		if (is_falling == false) {
-			
-			std::cout << "Falling" << std::endl;
-			std::cout << "Time passing " << timer.t << std::endl;
-			std::cout << "Time " << std::endl;
-			}
 		is_falling = true;
-		std::cout<< "Falling" << std::endl;
-		std::cout << "Time " << timer.t << std::endl;
-		std::cout << "Time fdfadafeg " << time_falling << std::endl;
-		std::cout << "Time falling: " << timer.t - time_falling << std::endl;
 		gravity.apply_gravity(camera_control, timer.t - time_falling);
 	}
 	}
-
-	std::cout << "Camera position:" << camera_control.camera_model.position_camera << std::endl;
 }
 
 
