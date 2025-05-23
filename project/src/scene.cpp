@@ -3,7 +3,7 @@
 #include "gravity.hpp"
 #include "heightgeneration.hpp"
 
-void deform_terrain(mesh& m, HeightsGenerator& height_generator)
+void deform_terrain(mesh& m, HeightsGenerator& height_generator, float xdecal, float ydecal)
 {
     for (int k = 0; k < m.position.size(); ++k)
     {
@@ -11,7 +11,7 @@ void deform_terrain(mesh& m, HeightsGenerator& height_generator)
         // Compute world coordinates for seamless relief
         float world_x = p.x;
         float world_y = p.y;
-		float new_z = height_generator.generateHeight(world_x, world_y);
+		float new_z = height_generator.generateHeight(world_x+xdecal, world_y+ydecal);
         // float z = 0.2f * exp(-( (world_x)*(world_x) + (world_y )*(world_y) ) / 40.0f);
         p = { p.x, p.y, new_z};
     }
@@ -60,7 +60,9 @@ void scene_structure::initialize()
 		for(int jchunk = 0 ; jchunk < NB_CHUNKS ; jchunk++)
 		{
 			chunks[ichunk*NB_CHUNKS+jchunk] = mesh_primitive_grid({ 0,0,0 }, { CHUNKS_LENGTH,0,0 }, { CHUNKS_LENGTH,CHUNKS_LENGTH,0 }, { 0,CHUNKS_LENGTH,0 }, CHUNKS_DIV, CHUNKS_DIV);
-			deform_terrain(chunks[ichunk*NB_CHUNKS+jchunk], height_generator);
+			float xdecal = ichunk*CHUNKS_LENGTH;
+			float ydecal = jchunk*CHUNKS_LENGTH;
+			deform_terrain(chunks[ichunk*NB_CHUNKS+jchunk], height_generator, xdecal, ydecal);
 			chunks_draw[ichunk*NB_CHUNKS+jchunk].initialize_data_on_gpu(chunks[ichunk*NB_CHUNKS+jchunk]);
 			chunks_draw[ichunk*NB_CHUNKS+jchunk].texture = texture_terrain;
 		}
