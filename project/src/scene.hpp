@@ -40,11 +40,14 @@ struct scene_structure : cgp::scene_inputs_generic {
 	timer_basic timer;
 	HeightsGenerator height_generator;
 	const int NB_CHUNKS = 10;
-	const int RENDER_DISTANCE = 2;
+	const int RENDER_DISTANCE = 3;
 	const float CHUNKS_LENGTH = 10.0f;
 	const float CHUNKS_DIV = 10;
 
 	vec3 CAMERA_POS_START = { 1.0f, 10.0f, 10.0f };
+	float CAMERA_HEIGHT = 1.0f;
+	float FLOATING_HEIGHT = 10.0f;
+	bool is_floating = false;
 
 	mesh* chunks;
 	mesh_drawable* chunks_draw;

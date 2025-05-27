@@ -120,8 +120,8 @@ void scene_structure::display_frame()
 	{
 		for (int jchunk = jcam-RENDER_DISTANCE; jchunk <= jcam+RENDER_DISTANCE; ++jchunk)
 		{
-			int ichunk_pos = (ichunk+NB_CHUNKS)%NB_CHUNKS;
-			int jchunk_pos = (jchunk+NB_CHUNKS)%NB_CHUNKS;
+			int ichunk_pos = ((ichunk) % NB_CHUNKS + NB_CHUNKS) % NB_CHUNKS;
+			int jchunk_pos = ((jchunk) % NB_CHUNKS + NB_CHUNKS) % NB_CHUNKS; // to avoid negative indices
 			std::cout<<"chunk "<<ichunk_pos<<" "<<jchunk_pos<<" "<<ichunk<<" "<<jchunk<<std::endl;
 			chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].model.translation = { ichunk*CHUNKS_LENGTH, jchunk*CHUNKS_LENGTH, 0 };
 			draw(chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos], environment);
@@ -169,19 +169,24 @@ void scene_structure::keyboard_event()
 void scene_structure::idle_frame()
 {
 	camera_control.idle_frame(environment.camera_view);
-	float pos = 0.5f+ height_generator.generateHeight(camera_control.camera_model.position_camera.x, camera_control.camera_model.position_camera.y);
+	float pos = CAMERA_HEIGHT + height_generator.generateHeight(camera_control.camera_model.position_camera.x, camera_control.camera_model.position_camera.y);
+	if(is_floating)
+	{
+		pos+= FLOATING_HEIGHT;
+	}
 	if (camera_control.camera_model.position_camera.z <= pos){
 		camera_control.camera_model.position_camera.z = pos;
 		is_falling = false;
 	}
 	if (inputs.keyboard.is_pressed('e')) {
-		camera_control.camera_model.position_camera.z += 1.0f;
+		is_floating = true;
 	}
 	else{
-	if (camera_control.camera_model.position_camera.z >pos) {
-		is_falling = true;
-		gravity.apply_gravity(camera_control, timer.t - time_falling);
-	}
+		is_floating = false;
+		if (camera_control.camera_model.position_camera.z >pos) {
+			is_falling = true;
+			gravity.apply_gravity(camera_control, timer.t - time_falling);
+		}
 	}
 }
 
