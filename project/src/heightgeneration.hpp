@@ -6,7 +6,7 @@ public:
     HeightsGenerator(float roll_parameter = 0.0f);
     HeightsGenerator(int gridX, int gridy, int vertexCount, int seed);
 
-    float generateHeight(float x, float y);
+    float generateHeight(float x, float y,bool use_liss);
 
 private:
     static constexpr float AMPLITUDE = 10.0f;
@@ -14,6 +14,7 @@ private:
     static constexpr float ROUGHNESS = 0.5f;
 
     float roll_parameter = 0.0f;
+    float lissdiameter = 0.2f;
 
     std::mt19937 random;
     int seed;

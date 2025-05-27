@@ -11,7 +11,7 @@ void deform_terrain(mesh& m, HeightsGenerator& height_generator, float xdecal, f
         // Compute world coordinates for seamless relief
         float world_x = p.x;
         float world_y = p.y;
-		float new_z = height_generator.generateHeight(world_x+xdecal, world_y+ydecal);
+		float new_z = height_generator.generateHeight(world_x+xdecal, world_y+ydecal,false);
         // float z = 0.2f * exp(-( (world_x)*(world_x) + (world_y )*(world_y) ) / 40.0f);
         p = { p.x, p.y, new_z};
     }
@@ -153,6 +153,7 @@ void scene_structure::display_gui()
 {
 	ImGui::Checkbox("Frame", &gui.display_frame);
 	ImGui::Checkbox("Wireframe", &gui.display_wireframe);
+	ImGui::SliderInt("Render distance", &RENDER_DISTANCE, 1, NB_CHUNKS/2-1);
 
 }
 
@@ -172,7 +173,7 @@ void scene_structure::keyboard_event()
 void scene_structure::idle_frame()
 {
 	camera_control.idle_frame(environment.camera_view);
-	float pos = CAMERA_HEIGHT + height_generator.generateHeight(camera_control.camera_model.position_camera.x, camera_control.camera_model.position_camera.y);
+	float pos = CAMERA_HEIGHT + height_generator.generateHeight(camera_control.camera_model.position_camera.x, camera_control.camera_model.position_camera.y,false);
 	if(is_floating)
 	{
 		pos+= FLOATING_HEIGHT;

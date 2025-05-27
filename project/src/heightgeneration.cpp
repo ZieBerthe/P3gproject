@@ -36,7 +36,15 @@ HeightsGenerator::HeightsGenerator(int gridX, int gridy, int vertexCount, int se
     random = std::mt19937(rd());
 }
 
-float HeightsGenerator::generateHeight(float x, float y) {
+float HeightsGenerator::generateHeight(float x, float y,bool use_liss = false) {
+    if (use_liss) {
+        float total = 0.0f;
+        total+=generateHeight(x+lissdiameter, y+lissdiameter, false); 
+        total+=generateHeight(x-lissdiameter, y+lissdiameter, false);
+        total+=generateHeight(x+lissdiameter, y-lissdiameter, false);
+        total+=generateHeight(x-lissdiameter, y-lissdiameter, false);
+        return total / 4.0f;
+    }
     float total = 0.0f;
     float roll_factor = 1.0f * roll_parameter;
     x = pfmodfold(x,roll_factor);
