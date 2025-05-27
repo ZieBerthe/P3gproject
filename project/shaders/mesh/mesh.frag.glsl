@@ -114,7 +114,7 @@ void main()
 	
 	// Compute Shading
 	// *************************************** //
-
+	
 	// Compute the base color of the object based on: vertex color, uniform color, and texture
 	vec3 color_object  = fragment.color * material.color * color_image_texture.rgb;
 
@@ -123,7 +123,12 @@ void main()
 	float Kd = material.phong.diffuse;
 	float Ks = material.phong.specular;
 	vec3 color_shading = (Ka + Kd * diffuse_component) * color_object + Ks * specular_component * vec3(1.0, 1.0, 1.0);
-	
+	if(cos(25.0*fragment.position.z)<-0.5f) {
+    discard;
+    // discard signifie l'arrêt du fragment shader
+    //  aucune couleur n'est affichée après discard
+    //  le pixel correspondant sera donc transparent.
+}
 	// Output color, with the alpha component
 	FragColor = vec4(color_shading, material.alpha * color_image_texture.a);
 }

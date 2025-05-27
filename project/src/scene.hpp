@@ -55,7 +55,7 @@ struct scene_structure : cgp::scene_inputs_generic {
 
 	opengl_texture_image_structure texture_terrain;
 	opengl_texture_image_structure texture_water;
-
+	opengl_texture_image_structure texture_earth;
 
 	bool is_falling = false;
 	float time_falling = 0.0f;

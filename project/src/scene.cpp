@@ -23,7 +23,10 @@ void deform_terrain(mesh& m, HeightsGenerator& height_generator, float xdecal, f
 void scene_structure::initialize()
 {
 	std::cout << "Start function scene_structure::initialize()" << std::endl;
-	
+	opengl_shader_structure shader_custom;
+	shader_custom.load(
+		project::path + "shaders/mesh/mesh.vert.glsl",
+		project::path + "shaders/mesh/mesh.frag.glsl");
 	// Set the behavior of the camera and its initial position
 	// ********************************************** //
 	camera_control.initialize(inputs, window); 
@@ -64,7 +67,8 @@ void scene_structure::initialize()
 	chunks = new mesh[NB_CHUNKS*NB_CHUNKS];
 	chunks_draw = new mesh_drawable[NB_CHUNKS*NB_CHUNKS];
 
-	texture_terrain.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sand.jpg", GL_REPEAT, GL_REPEAT);
+	texture_terrain.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sand.jpg", GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT);
+	texture_earth.load_and_initialize_texture_2d_on_gpu(project::path + "assets/earth.jpg", GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT);
 	texture_water.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sea.png", GL_REPEAT, GL_REPEAT);
 	// TODO: Apply terrain deformation to each chunk after creation
 	//TODO : change the number of triangles according to the distance from the camera
@@ -78,6 +82,10 @@ void scene_structure::initialize()
 			deform_terrain(chunks[ichunk*NB_CHUNKS+jchunk], height_generator, xdecal, ydecal);
 			chunks_draw[ichunk*NB_CHUNKS+jchunk].initialize_data_on_gpu(chunks[ichunk*NB_CHUNKS+jchunk]);
 			chunks_draw[ichunk*NB_CHUNKS+jchunk].texture = texture_terrain;
+			chunks_draw[ichunk*NB_CHUNKS+jchunk].shader= custom_shader;
+			shader_custom.use();
+			glUniform1i(glGetUniformLocation(shader_custom.id, "image_texture_ground"), 0); // texture unit 0
+			glUniform1i(glGetUniformLocation(shader_custom.id, "image_texture_snow"), 1);   // texture unit 1
 		}
 		
 	}
