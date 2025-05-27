@@ -58,6 +58,9 @@ void scene_structure::initialize()
 
 	// Create the shapes seen in the 3D scene
 	// ********************************************** //
+
+	height_generator = HeightsGenerator(NB_CHUNKS*CHUNKS_LENGTH); // Initialize the height generator with a roll parameter of 0.0f
+
 	chunks = new mesh[NB_CHUNKS*NB_CHUNKS];
 	chunks_draw = new mesh_drawable[NB_CHUNKS*NB_CHUNKS];
 

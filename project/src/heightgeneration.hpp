@@ -3,23 +3,25 @@
 
 class HeightsGenerator {
 public:
-    HeightsGenerator();
-    HeightsGenerator(int gridX, int gridZ, int vertexCount, int seed);
+    HeightsGenerator(float roll_parameter = 0.0f);
+    HeightsGenerator(int gridX, int gridy, int vertexCount, int seed);
 
-    float generateHeight(float x, float z);
+    float generateHeight(float x, float y);
 
 private:
     static constexpr float AMPLITUDE = 10.0f;
     static constexpr int OCTAVES = 5;
     static constexpr float ROUGHNESS = 0.5f;
 
+    float roll_parameter = 0.0f;
+
     std::mt19937 random;
     int seed;
     int xOffset = 0;
-    int zOffset = 0;
+    int yOffset = 0;
 
-    float getInterpolatedNoise(float x, float z);
+    float getInterpolatedNoise(float x, float y);
     float interpolate(float a, float b, float blend);
-    float getSmoothNoise(int x, int z);
-    float getNoise(int x, int z);
+    float getSmoothNoise(int x, int y);
+    float getNoise(int x, int y);
 };
