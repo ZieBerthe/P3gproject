@@ -4,8 +4,8 @@
 #include <random>
 
 const int OCTAVES = 5;
-const float ROUGHNESS = 0.8f;
-const float AMPLITUDE = 10.0f;
+const float ROUGHNESS = 0.6f;
+const float AMPLITUDE = 18.0f;
 
 float pfmodfold(float x, float mod)
 {

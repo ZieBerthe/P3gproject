@@ -68,7 +68,7 @@ void scene_structure::initialize()
 	chunks_draw = new mesh_drawable[NB_CHUNKS*NB_CHUNKS];
 
 	texture_terrain.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sand.jpg", GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT);
-	texture_earth.load_and_initialize_texture_2d_on_gpu(project::path + "assets/earth.jpg", GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT);
+	//texture_earth.load_and_initialize_texture_2d_on_gpu(project::path + "assets/earth.jpg", GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT);
 	texture_water.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sea.png", GL_REPEAT, GL_REPEAT);
 	// TODO: Apply terrain deformation to each chunk after creation
 	//TODO : change the number of triangles according to the distance from the camera
@@ -81,11 +81,12 @@ void scene_structure::initialize()
 			float ydecal = jchunk*CHUNKS_LENGTH;
 			deform_terrain(chunks[ichunk*NB_CHUNKS+jchunk], height_generator, xdecal, ydecal);
 			chunks_draw[ichunk*NB_CHUNKS+jchunk].initialize_data_on_gpu(chunks[ichunk*NB_CHUNKS+jchunk]);
+			chunks_draw[ichunk*NB_CHUNKS+jchunk].shader.load(project::path + "shaders/mesh/mesh.vert.glsl", project::path + "shaders/mesh/mesh_multi_texture.frag.glsl");
 			chunks_draw[ichunk*NB_CHUNKS+jchunk].texture = texture_terrain;
-			chunks_draw[ichunk*NB_CHUNKS+jchunk].shader= custom_shader;
-			shader_custom.use();
-			glUniform1i(glGetUniformLocation(shader_custom.id, "image_texture_ground"), 0); // texture unit 0
-			glUniform1i(glGetUniformLocation(shader_custom.id, "image_texture_snow"), 1);   // texture unit 1
+			chunks_draw[ichunk*NB_CHUNKS+jchunk].supplementary_texture["image_texture_2"].load_and_initialize_texture_2d_on_gpu(project::path + "assets/earth.jpg", GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT);
+			//chunks_draw[ichunk*NB_CHUNKS+jchunk].shader= shader_custom;
+			// glUniform1i(glGetUniformLocation(shader_custom.id, "image_texture_ground"), 0); // texture unit 0
+			// glUniform1i(glGetUniformLocation(shader_custom.id, "image_texture_snow"), 1);   // texture unit 1
 		}
 		
 	}
