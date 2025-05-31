@@ -38,19 +38,26 @@ struct scene_structure : cgp::scene_inputs_generic {
 	// ****************************** //
 	Gravity gravity;
 	timer_basic timer;
+	timer_basic lasttick;
 	HeightsGenerator height_generator;
-	const int NB_CHUNKS = 10;
-	int RENDER_DISTANCE = 3;
-	const float CHUNKS_LENGTH = 10.0f;
-	const float CHUNKS_DIV = 20;
+	MoveGenerator move_generator;
+	const int NB_CHUNKS = 4; // Number of chunks in each direction (total number of chunks = NB_CHUNKS^2)
+	int RENDER_DISTANCE = 1; // Number of chunks to render in each direction
+	const float CHUNKS_LENGTH = 10.0f; // Length of a chunk side
+	const int CHUNKS_DIV = 11; // Number of vertices per chunk each side
+	const float ROLLLENGTH = NB_CHUNKS * CHUNKS_LENGTH; // Total length of the rolling terrain
+	const float ROLLFLIPLENGTH = NB_CHUNKS * CHUNKS_LENGTH / 2;
+	
 
 	vec3 CAMERA_POS_START = { 1.0f, 10.0f, 10.0f };
 	float CAMERA_HEIGHT = 1.0f;
 	float FLOATING_HEIGHT = 10.0f;
 	bool is_floating = false;
 
+
 	mesh* chunks;
 	mesh_drawable* chunks_draw;
+	float* flatdecals;
 	mesh_drawable water;
 
 	opengl_texture_image_structure texture_terrain;
@@ -69,6 +76,14 @@ struct scene_structure : cgp::scene_inputs_generic {
 	void display_frame(); // The frame display to be called within the animation loop
 	void display_gui();   // The display of the GUI, also called within the animation loop
 
+	int roll_chunk(int chunk);
+	float roll_pos(float pos);
+	float roll_flip_pos(float pos);
+
+
+
+	void deform_chunk_init(mesh& chunk, int ichunk, int jchunk);
+	void deform_chunk_dyna(mesh& chunk, int ichunk, int jchunk);
 
 	void mouse_move_event();
 	void mouse_click_event();

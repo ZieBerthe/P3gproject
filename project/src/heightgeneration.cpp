@@ -2,6 +2,7 @@
 #include <cmath>
 #include <limits>
 #include <random>
+#include <iostream>
 
 const int OCTAVES = 5;
 const float ROUGHNESS = 0.8f;
@@ -19,8 +20,9 @@ float pfmodfold(float x, float mod)
     return res;
 }
 
-HeightsGenerator::HeightsGenerator(float roll_parameter)
-    : roll_parameter(roll_parameter){
+HeightsGenerator::HeightsGenerator(float roll_parameter, bool use_liss)
+    : roll_parameter(roll_parameter), use_liss(use_liss)
+    {
     std::random_device rd;
     random = std::mt19937(rd());
     std::uniform_int_distribution<int> dist(0, 1000000000);
@@ -36,14 +38,9 @@ HeightsGenerator::HeightsGenerator(int gridX, int gridy, int vertexCount, int se
     random = std::mt19937(rd());
 }
 
-float HeightsGenerator::generateHeight(float x, float y,bool use_liss = false) {
+float HeightsGenerator::generateHeight(float x, float y) {
     if (use_liss) {
-        float total = 0.0f;
-        total+=generateHeight(x+lissdiameter, y+lissdiameter, false); 
-        total+=generateHeight(x-lissdiameter, y+lissdiameter, false);
-        total+=generateHeight(x+lissdiameter, y-lissdiameter, false);
-        total+=generateHeight(x-lissdiameter, y-lissdiameter, false);
-        return total / 4.0f;
+        // Liss on many points ?
     }
     float total = 0.0f;
     float roll_factor = 1.0f * roll_parameter;
@@ -94,4 +91,85 @@ float HeightsGenerator::getNoise(int x, int y) {
     std::mt19937 localRandom(x * 49632 + y * 325176 + seed);
     std::uniform_real_distribution<float> dist(-1.0f, 1.0f);
     return dist(localRandom);
+}
+
+MovePoint::MovePoint(float x0, float y0, float amplitudemax, float flateningfactor, float prochangestate, float speed, float rollparameter,int seed=0)
+    : x0(x0), y0(y0), amplitudemax(amplitudemax), flateningfactor(flateningfactor), prochangestate(prochangestate), speed(speed), rollparameter(rollparameter),
+      seed(seed){
+    current_amplitude = 0.0f;
+    std::mt19937 random(seed);
+    std::uniform_int_distribution<> stategen(0,3);
+    state = stategen(random);
+}
+
+void MovePoint::updatesituation(float dt) {
+    std::cout << "Updating situation for point at (" << x0 << ", " << y0 << ") with state " << state << " Amplitude :" << current_amplitude << std::endl;
+    std::mt19937 random(seed);
+    std::uniform_real_distribution<float> dist(0.0f, 1.0f);
+
+
+    float proba = dist(random);
+    if(proba<prochangestate*dt && state%2 == 0)
+    {
+        state = (state + 1) % 4;
+    }
+    
+    switch (state) {
+        case 0: 
+            break;
+        case 1: // moving up
+            current_amplitude = std::min(current_amplitude + speed * dt * amplitudemax,amplitudemax);
+            if (current_amplitude == amplitudemax) {
+                state = 2; // stopping
+            }
+            break;
+        case 2: 
+            break;
+        case 3: // moving down
+            current_amplitude = std::max(current_amplitude - speed * dt * amplitudemax,-amplitudemax);
+            if (current_amplitude == -amplitudemax) {
+                state = 0; // stopping
+            }
+            break;
+    }
+}
+
+float MovePoint::calculateHeight(float x, float y) {
+    float dx = x - x0;
+    float dy = y - y0;
+    float distancesq = dx * dx + dy * dy;
+    float height = current_amplitude * std::exp(-distancesq * flateningfactor);
+    return height;
+}
+
+MoveGenerator::MoveGenerator(float roll_parameter = 10.0f, int movedpoints = 0, int seed = 431)
+    : roll_parameter(roll_parameter), movedpoints(movedpoints),seed(seed) {
+    std::mt19937 random(seed);
+    std::uniform_real_distribution<float> coord(0, roll_parameter);
+    std::uniform_int_distribution<int> seeding(0, 1000000000);
+    for (int i = 0; i < movedpoints; ++i) {
+        float x0 = static_cast<float>(coord(random)) ;
+        float y0 = static_cast<float>(coord(random)) ;
+        points.emplace_back(x0, y0, AMPLITUDE, FLATTENING, PROBABILITY_CHANGE_STATE, SPEED, roll_parameter, seeding(random)*i*i);
+    }
+}
+MoveGenerator::MoveGenerator() : MoveGenerator(10.0f, 0, 0) {
+    // Default constructor initializes with default parameters
+}
+
+void MoveGenerator::updatesituation(float dt) {
+    for (auto& point : points) {
+        point.updatesituation(dt);
+    }
+}
+
+float MoveGenerator::calculateHeight(float x, float y) {
+    x = pfmodfold(x, roll_parameter);
+    y = pfmodfold(y, roll_parameter);
+    float total_height = 0.0f;
+    for (auto& point : points) {
+        total_height += point.calculateHeight(x, y);
+    }
+    //std::cout << "Total height at (" << x << ", " << y << ") is " << total_height << std::endl;
+    return total_height;
 }
