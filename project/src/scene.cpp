@@ -2,7 +2,10 @@
 #include "groundmove.hpp"
 #include "gravity.hpp"
 #include "heightgeneration.hpp"
-
+bool is_chunk_visible(int ichunk, int jchunk, int icamchunk, int jcamchunk, int RENDER_DISTANCE) {
+    return std::abs(ichunk - icamchunk) <= RENDER_DISTANCE &&
+           std::abs(jchunk - jcamchunk) <= RENDER_DISTANCE;
+}
 int scene_structure::roll_chunk(int chunk)
 {
 	// Roll the chunk index to ensure it stays within the bounds of the array
@@ -43,6 +46,7 @@ void scene_structure::deform_chunk_dyna(mesh& chunk, int ichunk, int jchunk)
     }
     chunk.normal_update();
 }
+
 
 void scene_structure::deform_chunk_init(mesh& chunk, int ichunk, int jchunk)
 {
@@ -176,7 +180,9 @@ void scene_structure::display_frame()
 			std::cout<<"Chunk : "<<ichunk<<" ; "<<jchunk<<" -- Assigned chunk : "<<ichunk_pos<<" ; "<<jchunk_pos<<std::endl;
 			
 			deform_chunk_dyna(chunks[ichunk_pos*NB_CHUNKS+jchunk_pos], ichunk_pos, jchunk_pos); // deform with moves
+			chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].initialize_data_on_gpu(chunks[ichunk_pos*NB_CHUNKS+jchunk_pos]);
 			chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].model.translation = { ichunk*CHUNKS_LENGTH, jchunk*CHUNKS_LENGTH, 0 }; // move the chunk to the correct place
+			// // update the chunk drawable with the new mesh
 			draw(chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos], environment); // draw the chunk
 			if(gui.display_wireframe)
 			{

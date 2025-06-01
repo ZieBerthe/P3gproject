@@ -17,7 +17,7 @@ namespace cgp
 		// ********************************* //
 		static opengl_shader_structure default_shader; // default mesh shader shared by all mesh_drawable 
 		opengl_shader_structure shader; // Actual shader (used if defined)
-
+		bool dirty = true;
 		// Texture image
 		// ********************************* //
 		static opengl_texture_image_structure default_texture; // default white texture shared by all mesh_drawable

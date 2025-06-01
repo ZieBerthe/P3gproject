@@ -11,7 +11,7 @@ public:
 private:
     static constexpr float AMPLITUDE = 10.0f;
     static constexpr int OCTAVES = 5;
-    static constexpr float ROUGHNESS = 0.5f;
+    static constexpr float ROUGHNESS = 0.4f;
 
     float roll_parameter = 0.0f;
     float lissdiameter = 0.2f;
@@ -58,8 +58,8 @@ class MoveGenerator {
 
     private:
         float AMPLITUDE = 5.0f;
-        float FLATTENING = 0.05f;
-        float PROBABILITY_CHANGE_STATE = 0.5f;
+        float FLATTENING = 0.1f;
+        float PROBABILITY_CHANGE_STATE = 0.5f; 
         float SPEED = 0.1f;
 
         std::vector<MovePoint> points;
