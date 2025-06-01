@@ -26,7 +26,7 @@ void scene_structure::initialize()
 	opengl_shader_structure shader_custom;
 	shader_custom.load(
 		project::path + "shaders/mesh/mesh.vert.glsl",
-		project::path + "shaders/mesh/mesh.frag.glsl");
+		project::path + "shaders/mesh/mesh_multi_texture.frag.glsl");
 	// Set the behavior of the camera and its initial position
 	// ********************************************** //
 	camera_control.initialize(inputs, window); 
@@ -81,7 +81,7 @@ void scene_structure::initialize()
 			float ydecal = jchunk*CHUNKS_LENGTH;
 			deform_terrain(chunks[ichunk*NB_CHUNKS+jchunk], height_generator, xdecal, ydecal);
 			chunks_draw[ichunk*NB_CHUNKS+jchunk].initialize_data_on_gpu(chunks[ichunk*NB_CHUNKS+jchunk]);
-			chunks_draw[ichunk*NB_CHUNKS+jchunk].shader.load(project::path + "shaders/mesh/mesh.vert.glsl", project::path + "shaders/mesh/mesh_multi_texture.frag.glsl");
+			chunks_draw[ichunk*NB_CHUNKS+jchunk].shader= shader_custom;
 			chunks_draw[ichunk*NB_CHUNKS+jchunk].texture = texture_terrain;
 			chunks_draw[ichunk*NB_CHUNKS+jchunk].supplementary_texture["image_texture_2"].load_and_initialize_texture_2d_on_gpu(project::path + "assets/earth.jpg", GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT);
 			//chunks_draw[ichunk*NB_CHUNKS+jchunk].shader= shader_custom;
