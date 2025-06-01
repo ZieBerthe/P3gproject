@@ -71,13 +71,17 @@ void scene_structure::deform_chunk_init(mesh& chunk, int ichunk, int jchunk)
 // This function can contain any complex operation that can be pre-computed once
 void scene_structure::initialize()
 {
-	// SHADER SETUP
-	//opengl_shader_structure shader_custom;
-	//shader_custom.load(project::path + "shaders/mesh/mesh.vert.glsl",project::path + "shaders/mesh/mesh.frag.glsl");
+	std::cout << "Start function scene_structure::initialize()" << std::endl;
+	opengl_shader_structure shader_custom;
+	shader_custom.load(
+		project::path + "shaders/mesh/mesh.vert.glsl",
+		project::path + "shaders/mesh/mesh_multi_texture.frag.glsl");
+	// Set the behavior of the camera and its initial position
+	// ********************************************** //
+	camera_control.initialize(inputs, window); 
+	// mettre la vitesse de marche et celle de course
 
-	// CAMERA SETUP
-	camera_control.initialize(inputs, window); // mettre la vitesse de marche et celle de course
-	camera_control.configure_speed(2.0f, 15.0f); // speed of the camera
+	camera_control.configure_speed(10.0f, 1.5f); // speed of the camera
 	camera_control.set_rotation_axis_z(); // camera rotates around z-axis
 	camera_control.look_at(
 		CAMERA_POS_START /* position of the camera in the 3D scene */,
@@ -96,7 +100,7 @@ void scene_structure::initialize()
 
 	// TEXTURE SETUP
 	texture_terrain.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sand.jpg", GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT);
-	texture_earth.load_and_initialize_texture_2d_on_gpu(project::path + "assets/earth.jpg", GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT);
+	//texture_earth.load_and_initialize_texture_2d_on_gpu(project::path + "assets/earth.jpg", GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT);
 	texture_water.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sea.png", GL_REPEAT, GL_REPEAT);
 
 	// CHUNK SETUP ----------------------------------------------
@@ -121,10 +125,12 @@ void scene_structure::initialize()
 
 			//TEXTURE AND SHADER SETUP
 			chunks_draw[ichunk*NB_CHUNKS+jchunk].initialize_data_on_gpu(cur_chunk);
+			chunks_draw[ichunk*NB_CHUNKS+jchunk].shader= shader_custom;
 			chunks_draw[ichunk*NB_CHUNKS+jchunk].texture = texture_terrain;
-			//chunks_draw[ichunk*NB_CHUNKS+jchunk].shader = shader_custom;
-			//glUniform1i(glGetUniformLocation(shader_custom.id, "image_texture_ground"), 0); // texture unit 0
-			//glUniform1i(glGetUniformLocation(shader_custom.id, "image_texture_snow"), 1);   // texture unit 1
+			chunks_draw[ichunk*NB_CHUNKS+jchunk].supplementary_texture["image_texture_2"].load_and_initialize_texture_2d_on_gpu(project::path + "assets/earth.jpg", GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT);
+			//chunks_draw[ichunk*NB_CHUNKS+jchunk].shader= shader_custom;
+			// glUniform1i(glGetUniformLocation(shader_custom.id, "image_texture_ground"), 0); // texture unit 0
+			// glUniform1i(glGetUniformLocation(shader_custom.id, "image_texture_snow"), 1);   // texture unit 1
 		}
 		
 	}
@@ -141,6 +147,7 @@ void scene_structure::initialize()
 
 void scene_structure::display_frame()
 {
+	environment.uniform_generic.uniform_float["time"] = timer.t; // send the time to the shader
 
 	// CAMERA AND SKYBOX DISPLAYING
 	// Set the light to the current position of the camera

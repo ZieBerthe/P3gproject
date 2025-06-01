@@ -9,7 +9,7 @@ public:
     float generateHeight(float x, float y);
 
 private:
-    static constexpr float AMPLITUDE = 10.0f;
+    static constexpr float AMPLITUDE = 18.0f;
     static constexpr int OCTAVES = 5;
     static constexpr float ROUGHNESS = 0.4f;
 

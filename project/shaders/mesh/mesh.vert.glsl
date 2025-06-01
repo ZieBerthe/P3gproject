@@ -22,18 +22,25 @@ uniform mat4 model; // Model affine transform matrix associated to the current s
 uniform mat4 view;  // View matrix (rigid transform) of the camera
 uniform mat4 projection; // Projection (perspective or orthogonal) matrix of the camera
 
-
+uniform float time;
 
 void main()
 {
 	// The position of the vertex in the world space
-	vec4 position = model * vec4(vertex_position, 1.0);
+	mat4 M = transpose(
+    mat4(1.0, 0.0, 0.0, 0.0,
+        0.0, 1.0, 0.0, 0.0,
+        0.0, 0.0, 1.0, 0.0,
+        0.0, 0.0, 0.0, 1.0));
+
+	vec4 position = M * model * vec4(vertex_position, 1.0);
 
 	// The normal of the vertex in the world space
 	mat4 modelNormal = transpose(inverse(model));
 	vec4 normal = modelNormal * vec4(vertex_normal, 0.0);
 
 	// The projected position of the vertex in the normalized device coordinates:
+	
 	vec4 position_projected = projection * view * position;
 
 	// Fill the parameters sent to the fragment shader
@@ -43,5 +50,6 @@ void main()
 	fragment.uv = vertex_uv;
 
 	// gl_Position is a built-in variable which is the expected output of the vertex shader
+	vec4 oscillation = vec4(0.0, 0.0, 0.0, 0.0); // Oscillation is not used in this shader
 	gl_Position = position_projected; // gl_Position is the projected vertex position (in normalized device coordinates)
 }
