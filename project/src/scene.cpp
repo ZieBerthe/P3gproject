@@ -32,7 +32,7 @@ void scene_structure::initialize()
 	camera_control.initialize(inputs, window); 
 	// mettre la vitesse de marche et celle de course
 
-	camera_control.configure_speed(2.0f, 15.0f); // speed of the camera
+	camera_control.configure_speed(10.0f, 1.5f); // speed of the camera
 	camera_control.set_rotation_axis_z(); // camera rotates around z-axis
 	//   look_at(camera_position, targeted_point, up_direction)
 	camera_control.look_at(
@@ -102,6 +102,7 @@ void scene_structure::initialize()
 // Note that you should avoid having costly computation and large allocation defined there. This function is mostly used to call the draw() functions on pre-existing data.
 void scene_structure::display_frame()
 {
+	environment.uniform_generic.uniform_float["time"] = timer.t; // send the time to the shader
 
 	// Set the light to the current position of the camera
 	environment.light = camera_control.camera_model.position();

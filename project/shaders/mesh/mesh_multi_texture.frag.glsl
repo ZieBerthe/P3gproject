@@ -118,13 +118,11 @@ void main()
 
 	// Select texture based on height (fragment.position.z)
 	float height = fragment.position.z;
-	float threshold = 0.5; // set your threshold height here
-	float gradient = 0.1;  // width of the blending region
+	float threshold = 0.5; 
+	float gradient = 0.4;  
 
-	// Compute blend factor: 0 = texture1, 1 = texture2, smooth transition in [threshold-gradient, threshold+gradient]
+	
 	float blend = clamp((height - (threshold - gradient)) / (2.0 * gradient), 0.0, 1.0);
-
-	// Blend the two textures based on height
 	vec4 color_image_texture = mix(color_image_texture_1, color_image_texture_2, blend);
 
 
