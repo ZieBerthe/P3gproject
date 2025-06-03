@@ -107,7 +107,7 @@ void scene_structure::initialize()
 
 	// GENERATORS SETUP
 	height_generator = HeightsGenerator(ROLLFLIPLENGTH);
-	move_generator = MoveGenerator(ROLLFLIPLENGTH, 10, 0); // Initialize the move generator with a roll parameter of 0.0f // Initialize the height generator with a roll parameter of 0.0f
+	move_generator = MoveGenerator(ROLLFLIPLENGTH, 2* NB_CHUNKS*NB_CHUNKS, 0); // Initialize the move generator with a roll parameter of 0.0f // Initialize the height generator with a roll parameter of 0.0f
 
 	chunks = new mesh[NB_CHUNKS*NB_CHUNKS];
 	chunks_draw = new mesh_drawable[NB_CHUNKS*NB_CHUNKS];

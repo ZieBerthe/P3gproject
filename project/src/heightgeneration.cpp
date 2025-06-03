@@ -93,52 +93,40 @@ float HeightsGenerator::getNoise(int x, int y) {
     return dist(localRandom);
 }
 
-MovePoint::MovePoint(float x0, float y0, float amplitudemax, float flateningfactor, float prochangestate, float speed, float rollparameter,int seed=0)
-    : x0(x0), y0(y0), amplitudemax(amplitudemax), flateningfactor(flateningfactor), prochangestate(prochangestate), speed(speed), rollparameter(rollparameter),
+
+
+MovePoint::MovePoint(float x0, float y0, float speed, float amplitudemax, float flateningfactor,  float rollparameter,int seed=0)
+    : x0(x0), y0(y0), amplitudemax(amplitudemax), flateningfactor(flateningfactor), speed(speed), rollparameter(rollparameter),
       seed(seed){
     current_amplitude = 0.0f;
     std::mt19937 random(seed);
-    std::uniform_int_distribution<> stategen(0,3);
-    state = stategen(random);
+    std::uniform_int_distribution<> stategen(0,1);
+    upwards = stategen(random);
 }
 
 void MovePoint::updatesituation(float dt) {
-    std::cout << "Updating situation for point at (" << x0 << ", " << y0 << ") with state " << state << " Amplitude :" << current_amplitude << std::endl;
-    std::mt19937 random(seed);
-    std::uniform_real_distribution<float> dist(0.0f, 1.0f);
-
-
-    float proba = dist(random);
-    if(proba<prochangestate*dt && state%2 == 0)
+    std::cout << "Updating situation for point at (" << x0 << ", " << y0 << ") with state " << upwards << " Amplitude :" << current_amplitude << std::endl;
+    if(upwards)
     {
-        state = (state + 1) % 4;
+        current_amplitude = std::min(current_amplitude + speed * dt * amplitudemax,amplitudemax);
+        if (current_amplitude == amplitudemax) {
+            upwards = false; // switch to moving down
+        }
     }
-    
-    switch (state) {
-        case 0: 
-            break;
-        case 1: // moving up
-            current_amplitude = std::min(current_amplitude + speed * dt * amplitudemax,amplitudemax);
-            if (current_amplitude == amplitudemax) {
-                state = 2; // stopping
-            }
-            break;
-        case 2: 
-            break;
-        case 3: // moving down
-            current_amplitude = std::max(current_amplitude - speed * dt * amplitudemax,-amplitudemax);
-            if (current_amplitude == -amplitudemax) {
-                state = 0; // stopping
-            }
-            break;
+    else 
+    {
+        current_amplitude = std::max(current_amplitude - speed * dt * amplitudemax,-amplitudemax);
+        if (current_amplitude == -amplitudemax) {
+            upwards = true; // switch to moving up
+        }
     }
 }
 
 float MovePoint::calculateHeight(float x, float y) {
-    float dx = x - x0;
-    float dy = y - y0;
+    float dx = std::min(x - x0, rollparameter - (x - x0));
+    float dy = std::min(y - y0, rollparameter - (y - y0));
     float distancesq = dx * dx + dy * dy;
-    float height = current_amplitude * std::exp(-distancesq * flateningfactor);
+    float height = current_amplitude * std::exp(-distancesq / flateningfactor);
     return height;
 }
 
@@ -147,10 +135,12 @@ MoveGenerator::MoveGenerator(float roll_parameter = 10.0f, int movedpoints = 0, 
     std::mt19937 random(seed);
     std::uniform_real_distribution<float> coord(0, roll_parameter);
     std::uniform_int_distribution<int> seeding(0, 1000000000);
+    std::uniform_real_distribution<float> speedgen(SPEEDMIN, SPEEDMAX);
     for (int i = 0; i < movedpoints; ++i) {
         float x0 = static_cast<float>(coord(random)) ;
         float y0 = static_cast<float>(coord(random)) ;
-        points.emplace_back(x0, y0, AMPLITUDE, FLATTENING, PROBABILITY_CHANGE_STATE, SPEED, roll_parameter, seeding(random)*i*i);
+        float speed = speedgen(random);
+        points.emplace_back(x0, y0, speed, AMPLITUDE, FLATTENING, roll_parameter, seeding(random)*i*i);
     }
 }
 MoveGenerator::MoveGenerator() : MoveGenerator(10.0f, 0, 0) {
