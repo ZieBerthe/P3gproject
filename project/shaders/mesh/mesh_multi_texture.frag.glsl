@@ -136,7 +136,7 @@ void main()
 	// Compute the final shaded color using Phong model
 	float Ka = material.phong.ambient;
 	float Kd = material.phong.diffuse;
-	float Ks = material.phong.specular;
+	float Ks = 0.0f;
 	//ajout d'une teinte violée
 	vec3 color_shading = (Ka + Kd * diffuse_component) * color_object * vec3(0.7f,0.5f,1.0f) + Ks * specular_component * vec3(1.0, 1.0, 1.0);
 	

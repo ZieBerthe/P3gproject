@@ -9,9 +9,9 @@ public:
     float generateHeight(float x, float y);
 
 private:
-    static constexpr float AMPLITUDE = 18.0f;
+    static constexpr float AMPLITUDE = 30.0f;
     static constexpr int OCTAVES = 5;
-    static constexpr float ROUGHNESS = 0.4f;
+    static constexpr float ROUGHNESS = 0.2f;
 
     float roll_parameter = 0.0f;
     float lissdiameter = 0.2f;

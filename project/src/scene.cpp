@@ -89,7 +89,7 @@ void scene_structure::initialize()
 		{0,0,1} /* direction of the "up" vector */);
 	
 	// SKYBOX SETUP
-	image_structure image_skybox_template = image_load_file(project::path+"assets/stars_skybox.png");
+	image_structure image_skybox_template = image_load_file(project::path+"assets/nskybox.png");
 	std::vector<image_structure> image_grid = image_split_grid(image_skybox_template, 4, 3); // Split the image into a grid of 4 x 3 sub-images
 	skybox.initialize_data_on_gpu();
 	skybox.texture.initialize_cubemap_on_gpu(image_grid[1], image_grid[7], image_grid[5], image_grid[3], image_grid[10], image_grid[4]);
@@ -99,7 +99,7 @@ void scene_structure::initialize()
 	global_frame.initialize_data_on_gpu(mesh_primitive_frame());
 
 	// TEXTURE SETUP
-	texture_terrain.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sand.jpg", GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT);
+	texture_terrain.load_and_initialize_texture_2d_on_gpu(project::path + "assets/earth.jpg", GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT);
 	//texture_earth.load_and_initialize_texture_2d_on_gpu(project::path + "assets/earth.jpg", GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT);
 	texture_water.load_and_initialize_texture_2d_on_gpu(project::path + "assets/sea.png", GL_REPEAT, GL_REPEAT);
 
@@ -127,7 +127,7 @@ void scene_structure::initialize()
 			chunks_draw[ichunk*NB_CHUNKS+jchunk].initialize_data_on_gpu(cur_chunk);
 			chunks_draw[ichunk*NB_CHUNKS+jchunk].shader= shader_custom;
 			chunks_draw[ichunk*NB_CHUNKS+jchunk].texture = texture_terrain;
-			chunks_draw[ichunk*NB_CHUNKS+jchunk].supplementary_texture["image_texture_2"].load_and_initialize_texture_2d_on_gpu(project::path + "assets/earth.jpg", GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT);
+			chunks_draw[ichunk*NB_CHUNKS+jchunk].supplementary_texture["image_texture_2"].load_and_initialize_texture_2d_on_gpu(project::path + "assets/snowtexture.jpg", GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT);
 			//chunks_draw[ichunk*NB_CHUNKS+jchunk].shader= shader_custom;
 			// glUniform1i(glGetUniformLocation(shader_custom.id, "image_texture_ground"), 0); // texture unit 0
 			// glUniform1i(glGetUniformLocation(shader_custom.id, "image_texture_snow"), 1);   // texture unit 1

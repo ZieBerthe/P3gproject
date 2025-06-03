@@ -5,8 +5,8 @@
 #include <iostream>
 
 const int OCTAVES = 5;
-const float ROUGHNESS = 0.6f;
-const float AMPLITUDE = 18.0f;
+const float ROUGHNESS = 0.2f;
+const float AMPLITUDE = 30.0f;
 
 float pfmodfold(float x, float mod)
 {
