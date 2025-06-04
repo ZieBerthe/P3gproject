@@ -169,8 +169,13 @@ void scene_structure::display_frame()
 	std::cout<<"Camera in chunk : ("<<icamchunk<<" ; "<<jcamchunk<<")"<<std::endl;
 	for (int ichunk = icamchunk-RENDER_DISTANCE; ichunk <= icamchunk+RENDER_DISTANCE; ++ichunk)
 	{
+
 		for (int jchunk = jcamchunk-RENDER_DISTANCE; jchunk <= jcamchunk+RENDER_DISTANCE; ++jchunk)
 		{
+			if((ichunk -icamchunk) * (ichunk -icamchunk) + (jchunk -jcamchunk) * (jchunk -jcamchunk) > RENDER_DISTANCE * (RENDER_DISTANCE+2))
+			{
+				continue; // skip chunks that are too far away
+			}
 			int ichunk_pos = roll_chunk(ichunk);
 			int jchunk_pos = roll_chunk(jchunk);
 			std::cout<<"Chunk : "<<ichunk<<" ; "<<jchunk<<" -- Assigned chunk : "<<ichunk_pos<<" ; "<<jchunk_pos<<std::endl;
