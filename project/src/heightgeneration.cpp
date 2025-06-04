@@ -14,9 +14,6 @@ float pfmodfold(float x, float mod)
     if (res < 0) {
         res += mod;
     }
-    if (res > mod/2) {
-        res = mod - res;
-    }
     return res;
 }
 
@@ -29,14 +26,6 @@ HeightsGenerator::HeightsGenerator(float roll_parameter, bool use_liss)
     seed = dist(random);
 }
 
-HeightsGenerator::HeightsGenerator(int gridX, int gridy, int vertexCount, int seed)
-    : seed(seed)
-{
-    xOffset = gridX * (vertexCount - 1);
-    yOffset = gridy * (vertexCount - 1);
-    std::random_device rd;
-    random = std::mt19937(rd());
-}
 
 float HeightsGenerator::generateHeight(float x, float y) {
     if (use_liss) {
@@ -51,21 +40,25 @@ float HeightsGenerator::generateHeight(float x, float y) {
     for (int i = 0; i < OCTAVES; ++i) {
         float freq = std::pow(2.0f, i) / d;
         float amp = std::pow(ROUGHNESS, i) * AMPLITUDE;
-        total += getInterpolatedNoise((x + xOffset) * freq, (y + yOffset) * freq) * amp;
+        total += getInterpolatedNoise(x * freq, y * freq,roll_parameter*freq) * amp;
     }
     return total;
 }
 
-float HeightsGenerator::getInterpolatedNoise(float x, float y) {
+float HeightsGenerator::getInterpolatedNoise(float x, float y,float roll) {
+    x = pfmodfold(x, roll);
+    y = pfmodfold(y, roll);
     int intX = static_cast<int>(x);
     int inty = static_cast<int>(y);
+    int nextIntX = (intX + 1)% static_cast<int>(roll);
+    int nextInty = (inty + 1)% static_cast<int>(roll);
     float fracX = x - intX;
     float fracy = y - inty;
 
     float v1 = getSmoothNoise(intX, inty);
-    float v2 = getSmoothNoise(intX + 1, inty);
-    float v3 = getSmoothNoise(intX, inty + 1);
-    float v4 = getSmoothNoise(intX + 1, inty + 1);
+    float v2 = getSmoothNoise(nextIntX, inty);
+    float v3 = getSmoothNoise(intX, nextInty);
+    float v4 = getSmoothNoise(nextIntX, nextInty);
     float i1 = interpolate(v1, v2, fracX);
     float i2 = interpolate(v3, v4, fracX);
     return interpolate(i1, i2, fracy);
@@ -78,10 +71,14 @@ float HeightsGenerator::interpolate(float a, float b, float blend) {
 }
 
 float HeightsGenerator::getSmoothNoise(int x, int y) {
-    float corners = (getNoise(x - 1, y - 1) + getNoise(x + 1, y - 1) +
-                     getNoise(x - 1, y + 1) + getNoise(x + 1, y + 1)) / 16.0f;
-    float sides = (getNoise(x - 1, y) + getNoise(x + 1, y) +
-                   getNoise(x, y - 1) + getNoise(x, y + 1)) / 8.0f;
+    int xp1 = (x + 1) % static_cast<int>(roll_parameter);
+    int yp1 = (y + 1) % static_cast<int>(roll_parameter);
+    int xm1 = (x - 1 + static_cast<int>(roll_parameter)) % static_cast<int>(roll_parameter);
+    int ym1 = (y - 1 + static_cast<int>(roll_parameter)) % static_cast<int>(roll_parameter);
+    float corners = (getNoise(xm1, ym1) + getNoise(xp1, ym1) +
+                     getNoise(xm1, yp1) + getNoise(xp1, yp1)) / 16.0f;
+    float sides = (getNoise(xm1, y) + getNoise(xp1, y) +
+                     getNoise(x, ym1) + getNoise(x, yp1)) / 8.0f;
     float center = getNoise(x, y) / 4.0f;
     return corners + sides + center;
 }
@@ -125,8 +122,10 @@ void MovePoint::updatesituation(float dt) {
 }
 
 float MovePoint::calculateHeight(float x, float y) {
-    float dx = std::min(x - x0, rollparameter - (x - x0));
-    float dy = std::min(y - y0, rollparameter - (y - y0));
+    float dxb = std::abs(x - x0);
+    float dyb = std::abs(y - y0);
+    float dx = std::min(dxb, rollparameter - dxb);
+    float dy = std::min(dyb, rollparameter - dyb);
     float distancesq = dx * dx + dy * dy;
     float height = current_amplitude * std::exp(-distancesq / flateningfactor);
     return height;

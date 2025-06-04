@@ -16,17 +16,6 @@ float scene_structure::roll_pos(float pos)
 	// Roll the position index to ensure it stays within the bounds of the array
 	return fmod((fmod(pos, ROLLLENGTH) + ROLLLENGTH), ROLLLENGTH);
 }
-float scene_structure::roll_flip_pos(float pos)
-{
-	// Roll the position index to ensure it stays within the bounds of the array
-	float rolled = roll_pos(pos);
-	if (rolled > ROLLFLIPLENGTH) {
-		return ROLLLENGTH - rolled;
-	}
-	else {
-		return rolled;
-	}
-}
 
 void scene_structure::deform_chunk_dyna(mesh& chunk, int ichunk, int jchunk)
 {
@@ -37,8 +26,8 @@ void scene_structure::deform_chunk_dyna(mesh& chunk, int ichunk, int jchunk)
     {
         vec3& p = chunk.position[k];
         // Compute world coordinates for seamless relief
-		float usex = roll_flip_pos(p.x + xdecal);
-		float usey = roll_flip_pos(p.y + ydecal);
+		float usex = roll_pos(p.x + xdecal);
+		float usey = roll_pos(p.y + ydecal);
 		float zbase = flatdecals[chunkid + k];
 		float new_z = zbase + move_generator.calculateHeight(usex, usey);
 		// Update the vertex position
@@ -58,8 +47,8 @@ void scene_structure::deform_chunk_init(mesh& chunk, int ichunk, int jchunk)
 	{
 		// position of the vertex in the chunk
 		vec3& p = chunk.position[k];
-		float usex = roll_flip_pos(p.x + xdecal);
-		float usey = roll_flip_pos(p.y + ydecal);
+		float usex = roll_pos(p.x + xdecal);
+		float usey = roll_pos(p.y + ydecal);
 		float z = height_generator.generateHeight(usex, usey);
 		flatdecals[chunkid + k] = z;
 		p = { p.x, p.y, z};
@@ -106,8 +95,8 @@ void scene_structure::initialize()
 	// CHUNK SETUP ----------------------------------------------
 
 	// GENERATORS SETUP
-	height_generator = HeightsGenerator(ROLLFLIPLENGTH);
-	move_generator = MoveGenerator(ROLLFLIPLENGTH, 2* NB_CHUNKS*NB_CHUNKS, 0); // Initialize the move generator with a roll parameter of 0.0f // Initialize the height generator with a roll parameter of 0.0f
+	height_generator = HeightsGenerator(ROLLLENGTH);
+	move_generator = MoveGenerator(ROLLLENGTH, 2* NB_CHUNKS*NB_CHUNKS, 0); // Initialize the move generator with a roll parameter of 0.0f // Initialize the height generator with a roll parameter of 0.0f
 
 	chunks = new mesh[NB_CHUNKS*NB_CHUNKS];
 	chunks_draw = new mesh_drawable[NB_CHUNKS*NB_CHUNKS];
@@ -231,8 +220,8 @@ void scene_structure::idle_frame()
 	float camy = camera_control.camera_model.position_camera.y;
 	//float camz = camera_control.camera_model.position_camera.z;
 
-	float camx_rollflipped = roll_flip_pos(camx);
-	float camy_rollflipped = roll_flip_pos(camy);
+	float camx_rollflipped = roll_pos(camx);
+	float camy_rollflipped = roll_pos(camy);
 	float decalbase =          move_generator.calculateHeight(camx_rollflipped, camy_rollflipped);
 	float decal = decalbase + height_generator.generateHeight(camx_rollflipped, camy_rollflipped);
 

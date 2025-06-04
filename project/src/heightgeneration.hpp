@@ -9,9 +9,9 @@ public:
     float generateHeight(float x, float y);
 
 private:
-    static constexpr float AMPLITUDE = 15.0f;
+    static constexpr float AMPLITUDE = 10.0f;
     static constexpr int OCTAVES = 3;
-    static constexpr float ROUGHNESS = 0.05f;
+    static constexpr float ROUGHNESS = 0.03f;
 
     float roll_parameter = 0.0f;
     float lissdiameter = 0.2f;
@@ -19,10 +19,8 @@ private:
 
     std::mt19937 random;
     int seed;
-    int xOffset = 0;
-    int yOffset = 0;
 
-    float getInterpolatedNoise(float x, float y);
+    float getInterpolatedNoise(float x, float y,float roll = 1.0f);
     float interpolate(float a, float b, float blend);
     float getSmoothNoise(int x, int y);
     float getNoise(int x, int y);
