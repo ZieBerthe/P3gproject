@@ -44,7 +44,7 @@ struct scene_structure : cgp::scene_inputs_generic {
 	const int NB_CHUNKS = 10; // Number of chunks in each direction (total number of chunks = NB_CHUNKS^2)
 	int RENDER_DISTANCE = 1; // Number of chunks to render in each direction
 	const float CHUNKS_LENGTH = 10.0f; // Length of a chunk side
-	const int CHUNKS_DIV = 11; // Number of vertices per chunk each side
+	const int CHUNKS_DIV = 17; // Number of vertices per chunk each side
 	const float ROLLLENGTH = NB_CHUNKS * CHUNKS_LENGTH; // Total length of the rolling terrain
 	const float ROLLFLIPLENGTH = NB_CHUNKS * CHUNKS_LENGTH / 2;
 	

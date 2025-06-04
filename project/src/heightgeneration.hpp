@@ -30,7 +30,7 @@ private:
 
 class MovePoint{
     public:
-        MovePoint(float x0, float y0, float amplitudemax, float flateningfactor,float prochangestate,float speed,float rollparameter, int seed);
+        MovePoint(float x0, float y0, float amplitudemax, float flateningfactor,float speed,float rollparameter, int seed);
         float calculateHeight(float x, float y);
         void updatesituation(float dt);
 
@@ -39,10 +39,9 @@ class MovePoint{
         float y0;
         float amplitudemax;
         float flateningfactor;
-        float prochangestate;
         float speed;
         float rollparameter;
-        int state = 0; // 0 : stopped 1 moving up 2 stopping 3 moving down
+        bool upwards; 
         float current_amplitude;
         std::mt19937 random;
         int seed;
@@ -57,10 +56,10 @@ class MoveGenerator {
         void updatesituation(float dt);
 
     private:
-        float AMPLITUDE = 5.0f;
-        float FLATTENING = 0.1f;
-        float PROBABILITY_CHANGE_STATE = 0.5f; 
-        float SPEED = 0.1f;
+        float AMPLITUDE = 2.0f;
+        float FLATTENING = 4.0f;
+        float SPEEDMIN = 0.05f;
+        float SPEEDMAX = 0.6f;
 
         std::vector<MovePoint> points;
         float roll_parameter;
