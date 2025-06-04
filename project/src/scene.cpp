@@ -81,7 +81,7 @@ void scene_structure::initialize()
 	camera_control.initialize(inputs, window); 
 	// mettre la vitesse de marche et celle de course
 
-	camera_control.configure_speed(10.0f, 1.5f); // speed of the camera
+	camera_control.configure_speed(6.0f, 1.5f); // speed of the camera
 	camera_control.set_rotation_axis_z(); // camera rotates around z-axis
 	camera_control.look_at(
 		CAMERA_POS_START /* position of the camera in the 3D scene */,
@@ -189,7 +189,6 @@ void scene_structure::display_frame()
 			deform_chunk_dyna(chunks[ichunk_pos*NB_CHUNKS+jchunk_pos], ichunk_pos, jchunk_pos); // deform with moves
 			chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].initialize_data_on_gpu(chunks[ichunk_pos*NB_CHUNKS+jchunk_pos]);
 			chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].model.translation = { ichunk*CHUNKS_LENGTH, jchunk*CHUNKS_LENGTH, 0 }; // move the chunk to the correct place
-			// // update the chunk drawable with the new mesh
 			draw(chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos], environment); // draw the chunk
 			if(gui.display_wireframe)
 			{

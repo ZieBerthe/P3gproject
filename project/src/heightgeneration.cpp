@@ -4,9 +4,9 @@
 #include <random>
 #include <iostream>
 
-const int OCTAVES = 5;
+const int OCTAVES = 2;
 const float ROUGHNESS = 0.2f;
-const float AMPLITUDE = 30.0f;
+const float AMPLITUDE = 15.0f;
 
 float pfmodfold(float x, float mod)
 {
@@ -87,8 +87,10 @@ float HeightsGenerator::getSmoothNoise(int x, int y) {
 }
 
 float HeightsGenerator::getNoise(int x, int y) {
-    // Use a deterministic seed for each (x, y) pair
-    std::mt19937 localRandom(x * 49632 + y * 325176 + seed);
+    // Using a pseudo-random number generator based on the seed
+    uint64_t hash = static_cast<uint64_t>(x) * 49632 + static_cast<uint64_t>(y) * 325176 + static_cast<uint64_t>(seed);
+    std::seed_seq seq{static_cast<uint32_t>(hash & 0xFFFFFFFF), static_cast<uint32_t>(hash >> 32)};
+    std::mt19937 localRandom(seq);
     std::uniform_real_distribution<float> dist(-1.0f, 1.0f);
     return dist(localRandom);
 }
@@ -105,7 +107,7 @@ MovePoint::MovePoint(float x0, float y0, float speed, float amplitudemax, float 
 }
 
 void MovePoint::updatesituation(float dt) {
-    std::cout << "Updating situation for point at (" << x0 << ", " << y0 << ") with state " << upwards << " Amplitude :" << current_amplitude << std::endl;
+    // std::cout << "Updating situation for point at (" << x0 << ", " << y0 << ") with state " << upwards << " Amplitude :" << current_amplitude << std::endl;
     if(upwards)
     {
         current_amplitude = std::min(current_amplitude + speed * dt * amplitudemax,amplitudemax);

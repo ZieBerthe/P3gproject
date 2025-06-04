@@ -118,7 +118,7 @@ void main()
 
 	// Select texture based on height (fragment.position.z)
 	float height = fragment.position.z;
-	float threshold = 0.5; 
+	float threshold = 0.1; 
 	float gradient = 0.4;  
 
 	
