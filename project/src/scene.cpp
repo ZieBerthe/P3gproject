@@ -97,7 +97,10 @@ void scene_structure::initialize()
 	// GENERATORS SETUP
 	height_generator = HeightsGenerator(ROLLLENGTH);
 	move_generator = MoveGenerator(ROLLLENGTH, 8*NB_CHUNKS, 0); // Initialize the move generator with a roll parameter of 0.0f // Initialize the height generator with a roll parameter of 0.0f
-
+	const auto& pts = move_generator.getPoints();
+	for (const auto& pt : pts) {
+		std::cout << "les points sont Point: (" << pt.x0 << ", " << pt.y0 << ", " << pt.speed << ", " << pt.amplitudemax << ", " << pt.flateningfactor << ", " << pt.rollparameter << ", " << pt.seed << ")" << std::endl;
+	}
 	chunks = new mesh[NB_CHUNKS*NB_CHUNKS];
 	chunks_draw = new mesh_drawable[NB_CHUNKS*NB_CHUNKS];
 	flatdecals = new float[NB_CHUNKS*NB_CHUNKS* CHUNKS_DIV * CHUNKS_DIV];

@@ -153,7 +153,9 @@ void MoveGenerator::updatesituation(float dt) {
         point.updatesituation(dt);
     }
 }
-
+const std::vector<MovePoint>& MoveGenerator::getPoints() const {
+    return points;
+}
 float MoveGenerator::calculateHeight(float x, float y) {
     x = pfmodfold(x, roll_parameter);
     y = pfmodfold(y, roll_parameter);

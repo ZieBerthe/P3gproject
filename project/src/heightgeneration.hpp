@@ -31,8 +31,7 @@ class MovePoint{
         MovePoint(float x0, float y0, float amplitudemax, float flateningfactor,float speed,float rollparameter, int seed);
         float calculateHeight(float x, float y);
         void updatesituation(float dt);
-
-    private:
+        
         float x0;
         float y0;
         float amplitudemax;
@@ -52,7 +51,7 @@ class MoveGenerator {
 
         float calculateHeight(float x, float y);
         void updatesituation(float dt);
-
+        const std::vector<MovePoint>& getPoints() const;
     private:
         float AMPLITUDE = 2.0f;
         float FLATTENING = 4.0f;
