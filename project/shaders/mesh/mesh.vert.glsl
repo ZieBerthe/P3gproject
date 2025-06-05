@@ -37,14 +37,18 @@ void main()
         0.0, 0.0, 1.0, 0.0,
         0.0, 0.0, 0.0, 1.0));
 
-	vec4 position = M * model * vec4(vertex_position, 1.0);
+	vec4 position_moved = vec4(vertex_position,1.0) + vec4(0.0, 0.0, 0.0, 0.0);
 	for (int i = 0; i < points_count; ++i) {
 	    if ((abs(points[i].x - vertex_position.x) < 1.0f) &&
 	       (abs(points[i].y - vertex_position.y) < 1.0f)) {
-	        position = vec4(0.0, 0.0, -550.0, 1.0); // If the vertex is close to a point, set its position to the point
+	        position_moved = vec4(0.0, 0.0, -550.0, 1.0); // If the vertex is close to a point, set its position to the point
 	        break;
 	    }
 	}
+	 // No movement applied in this shader
+
+	vec4 position = M * model * vec4(position_moved);
+	
 	// The normal of the vertex in the world space
 	mat4 modelNormal = transpose(inverse(model));
 	vec4 normal = modelNormal * vec4(vertex_normal, 0.0);

@@ -2,6 +2,8 @@
 #include "groundmove.hpp"
 #include "gravity.hpp"
 #include "heightgeneration.hpp"
+
+
 bool is_chunk_visible(int ichunk, int jchunk, int icamchunk, int jcamchunk, int RENDER_DISTANCE) {
     return std::abs(ichunk - icamchunk) <= RENDER_DISTANCE &&
            std::abs(jchunk - jcamchunk) <= RENDER_DISTANCE;
@@ -19,17 +21,17 @@ float scene_structure::roll_pos(float pos)
 
 void scene_structure::deform_chunk_dyna(mesh& chunk, int ichunk, int jchunk)
 {
-	float xdecal = ichunk*CHUNKS_LENGTH;
-	float ydecal = jchunk*CHUNKS_LENGTH;
 	int chunkid = CHUNKS_DIV * CHUNKS_DIV * (ichunk * NB_CHUNKS + jchunk);
     for (int k = 0; k < chunk.position.size(); ++k)
     {
         vec3& p = chunk.position[k];
         // Compute world coordinates for seamless relief
-		float usex = roll_pos(p.x + xdecal);
-		float usey = roll_pos(p.y + ydecal);
 		float zbase = flatdecals[chunkid + k];
-		float new_z = zbase + move_generator.calculateHeight(usex, usey);
+		if(noflat)
+		{
+			zbase = 0;
+		}
+		float new_z = zbase + move_generator.calculateHeight(p.x, p.y);
 		// Update the vertex position
 		p = { p.x, p.y, new_z };
     }
@@ -40,16 +42,18 @@ void scene_structure::deform_chunk_dyna(mesh& chunk, int ichunk, int jchunk)
 void scene_structure::deform_chunk_init(mesh& chunk, int ichunk, int jchunk)
 {
 	// init chunk deformation with perlin noise
-	float xdecal = ichunk*CHUNKS_LENGTH;
-	float ydecal = jchunk*CHUNKS_LENGTH;
 	int chunkid = CHUNKS_DIV * CHUNKS_DIV * (ichunk * NB_CHUNKS + jchunk);
 	for (int k = 0; k < chunk.position.size(); ++k)
 	{
 		// position of the vertex in the chunk
 		vec3& p = chunk.position[k];
-		float usex = roll_pos(p.x + xdecal);
-		float usey = roll_pos(p.y + ydecal);
+		float usex = roll_pos(p.x);
+		float usey = roll_pos(p.y);
 		float z = height_generator.generateHeight(usex, usey);
+		if (noflat)
+		{
+			z = 0; // if no flat, set the height to 0
+		}
 		flatdecals[chunkid + k] = z;
 		p = { p.x, p.y, z};
 	}
@@ -136,12 +140,19 @@ void scene_structure::initialize()
 		for(int jchunk = 0 ; jchunk < NB_CHUNKS ; jchunk++)
 		{
 			mesh& cur_chunk = chunks[ichunk*NB_CHUNKS+jchunk];
-			cur_chunk = mesh_primitive_grid({ 0,0,0 }, { CHUNKS_LENGTH,0,0 }, { CHUNKS_LENGTH,CHUNKS_LENGTH,0 }, { 0,CHUNKS_LENGTH,0 }, CHUNKS_DIV, CHUNKS_DIV);
+			float xpos = ichunk*CHUNKS_LENGTH;
+			float ypos = jchunk*CHUNKS_LENGTH;
+			cur_chunk = mesh_primitive_grid(
+				{ xpos, ypos, 0 }, 
+				{ xpos+CHUNKS_LENGTH, ypos, 0 }, 
+				{ xpos+CHUNKS_LENGTH, ypos+CHUNKS_LENGTH, 0 }, 
+				{ xpos, ypos+CHUNKS_LENGTH, 0 }, 
+				CHUNKS_DIV, CHUNKS_DIV);
 			deform_chunk_init(cur_chunk, ichunk, jchunk);
 
 			//TEXTURE AND SHADER SETUP
 			chunks_draw[ichunk*NB_CHUNKS+jchunk].initialize_data_on_gpu(cur_chunk);
-			chunks_draw[ichunk*NB_CHUNKS+jchunk].shader= shader_custom;
+			chunks_draw[ichunk*NB_CHUNKS+jchunk].shader = shader_custom;
 			chunks_draw[ichunk*NB_CHUNKS+jchunk].texture = texture_terrain;
 			chunks_draw[ichunk*NB_CHUNKS+jchunk].supplementary_texture["image_texture_2"].load_and_initialize_texture_2d_on_gpu(project::path + "assets/snowtexture.jpg", GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT);
 			//chunks_draw[ichunk*NB_CHUNKS+jchunk].shader= shader_custom;
@@ -210,11 +221,13 @@ void scene_structure::display_frame()
 			}
 			int ichunk_pos = roll_chunk(ichunk);
 			int jchunk_pos = roll_chunk(jchunk);
+			int ichunk_dec = ichunk - ichunk_pos; // calculate the difference between the chunk index and the rolled chunk index
+			int jchunk_dec = jchunk - jchunk_pos; // calculate the difference between the chunk index and the rolled chunk index
 			//std::cout<<"Chunk : "<<ichunk<<" ; "<<jchunk<<" -- Assigned chunk : "<<ichunk_pos<<" ; "<<jchunk_pos<<std::endl;
 			
 			deform_chunk_dyna(chunks[ichunk_pos*NB_CHUNKS+jchunk_pos], ichunk_pos, jchunk_pos); // deform with moves
 			chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].initialize_data_on_gpu(chunks[ichunk_pos*NB_CHUNKS+jchunk_pos]);
-			chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].model.translation = { ichunk*CHUNKS_LENGTH, jchunk*CHUNKS_LENGTH, 0 }; // move the chunk to the correct place
+			chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].model.translation = { ichunk_dec*CHUNKS_LENGTH, jchunk_dec*CHUNKS_LENGTH, 0 }; // move the chunk to the correct place
 			draw(chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos], environment); // draw the chunk
 			if(gui.display_wireframe)
 			{
@@ -259,8 +272,11 @@ void scene_structure::idle_frame()
 
 	float camx_rollflipped = roll_pos(camx);
 	float camy_rollflipped = roll_pos(camy);
-	float decalbase =          move_generator.calculateHeight(camx_rollflipped, camy_rollflipped);
-	float decal = decalbase + height_generator.generateHeight(camx_rollflipped, camy_rollflipped);
+	float decalbase = height_generator.generateHeight(camx_rollflipped, camy_rollflipped);
+	if (noflat) {
+		decalbase = 0.0f; // if no flat, set the height to 0
+	}
+	float decal = decalbase + move_generator.calculateHeight(camx_rollflipped, camy_rollflipped);
 
 	float newz = CAMERA_HEIGHT + decal;
 	if (camera_control.camera_model.position_camera.z <= newz){
