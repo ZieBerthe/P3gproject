@@ -24,6 +24,10 @@ uniform mat4 projection; // Projection (perspective or orthogonal) matrix of the
 
 uniform float time;
 
+const int MAX_POINTS = 128; // Maximum number of points
+uniform vec4 points[MAX_POINTS];
+uniform int points_count;
+
 void main()
 {
 	// The position of the vertex in the world space
@@ -34,7 +38,13 @@ void main()
         0.0, 0.0, 0.0, 1.0));
 
 	vec4 position = M * model * vec4(vertex_position, 1.0);
-
+	for (int i = 0; i < points_count; ++i) {
+	    if ((abs(points[i].x - vertex_position.x) < 20) &&
+	       (abs(points[i].y - vertex_position.y) < 20)) {
+	        position = vec4(0.0, 0.0, -550.0, 1.0); // If the vertex is close to a point, set its position to the point
+	        break;
+	    }
+	}
 	// The normal of the vertex in the world space
 	mat4 modelNormal = transpose(inverse(model));
 	vec4 normal = modelNormal * vec4(vertex_normal, 0.0);
@@ -48,8 +58,11 @@ void main()
 	fragment.normal   = normal.xyz;
 	fragment.color = vertex_color;
 	fragment.uv = vertex_uv;
-
+	
 	// gl_Position is a built-in variable which is the expected output of the vertex shader
 	vec4 oscillation = vec4(0.0, 0.0, 0.0, 0.0); // Oscillation is not used in this shader
 	gl_Position = position_projected; // gl_Position is the projected vertex position (in normalized device coordinates)
+
+	// Example usage: access points[0].xyzw, points_count
+	
 }

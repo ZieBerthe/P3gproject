@@ -101,6 +101,30 @@ void scene_structure::initialize()
 	for (const auto& pt : pts) {
 		std::cout << "les points sont Point: (" << pt.x0 << ", " << pt.y0 << ", " << pt.speed << ", " << pt.amplitudemax << ", " << pt.flateningfactor << ", " << pt.rollparameter << ", " << pt.seed << ")" << std::endl;
 	}
+	// --- Send points to the vertex shader as a uniform array ---
+	// Assuming shader_custom is still in scope and pts is a vector of a struct with float fields
+	// We'll send x0, y0, speed, amplitudemax as a vec4 array (adjust as needed)
+	std::vector<float> points_flat;
+	for (const auto& pt : pts) {
+		points_flat.push_back(pt.x0);
+		points_flat.push_back(pt.y0);
+		points_flat.push_back(pt.speed);
+		points_flat.push_back(pt.amplitudemax);
+		
+	}
+	GLuint shader_id = shader_custom.id;
+	glUseProgram(shader_id);
+	int max_points = NB_CHUNKS * NB_CHUNKS; 
+	int n_points = std::min(int(pts.size()), max_points);
+	GLint loc = glGetUniformLocation(shader_id, "points");
+	if (loc != -1) {
+		glUniform4fv(loc, n_points, points_flat.data());
+	}
+	GLint loc_count = glGetUniformLocation(shader_id, "points_count");
+	if (loc_count != -1) {
+		glUniform1i(loc_count, n_points);
+	}
+	glUseProgram(0);
 	chunks = new mesh[NB_CHUNKS*NB_CHUNKS];
 	chunks_draw = new mesh_drawable[NB_CHUNKS*NB_CHUNKS];
 	flatdecals = new float[NB_CHUNKS*NB_CHUNKS* CHUNKS_DIV * CHUNKS_DIV];
@@ -133,6 +157,7 @@ void scene_structure::initialize()
 	water.initialize_data_on_gpu(mesh_primitive_grid({ -sea_w,-sea_w,SEA_Z }, { sea_w,-sea_w,SEA_Z }, { sea_w,sea_w,SEA_Z }, { -sea_w,sea_w,SEA_Z }));
 	water.texture = texture_water;
 
+
 }
 
 
@@ -151,8 +176,8 @@ void scene_structure::display_frame()
 	// TIMER UPDATE AND TERRAIN DEFORMATION
 	timer.update();
 	if (is_falling == false) {
-		std::cout << "nottt t thsahfdahFalling" << std::endl;
-		std::cout << "Time " << time_falling << std::endl;
+		// std::cout << "nottt t thsahfdahFalling" << std::endl;
+		// std::cout << "Time " << time_falling << std::endl;
 		time_falling = timer.t;
 	}
 	std::cout << "tick" << timer.t - lasttick.t << std::endl;
@@ -169,7 +194,11 @@ void scene_structure::display_frame()
 	// CALCULATING CHUNK POSITION
 	int icamchunk = int(camera_control.camera_model.position().x / CHUNKS_LENGTH);
 	int jcamchunk = int(camera_control.camera_model.position().y / CHUNKS_LENGTH);
-	std::cout<<"Camera in chunk : ("<<icamchunk<<" ; "<<jcamchunk<<")"<<std::endl;
+	//std::cout<<"Camera in chunk : ("<<icamchunk<<" ; "<<jcamchunk<<")"<<std::endl;
+	// print current camera position
+	std::cout << "Camera position: (" << camera_control.camera_model.position().x << ", " 
+		<< camera_control.camera_model.position().y << ", " 
+		<< camera_control.camera_model.position().z << ")" << std::endl;
 	for (int ichunk = icamchunk-RENDER_DISTANCE; ichunk <= icamchunk+RENDER_DISTANCE; ++ichunk)
 	{
 
@@ -181,10 +210,10 @@ void scene_structure::display_frame()
 			}
 			int ichunk_pos = roll_chunk(ichunk);
 			int jchunk_pos = roll_chunk(jchunk);
-			std::cout<<"Chunk : "<<ichunk<<" ; "<<jchunk<<" -- Assigned chunk : "<<ichunk_pos<<" ; "<<jchunk_pos<<std::endl;
+			//std::cout<<"Chunk : "<<ichunk<<" ; "<<jchunk<<" -- Assigned chunk : "<<ichunk_pos<<" ; "<<jchunk_pos<<std::endl;
 			
-			//deform_chunk_dyna(chunks[ichunk_pos*NB_CHUNKS+jchunk_pos], ichunk_pos, jchunk_pos); // deform with moves
-			//chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].initialize_data_on_gpu(chunks[ichunk_pos*NB_CHUNKS+jchunk_pos]);
+			deform_chunk_dyna(chunks[ichunk_pos*NB_CHUNKS+jchunk_pos], ichunk_pos, jchunk_pos); // deform with moves
+			chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].initialize_data_on_gpu(chunks[ichunk_pos*NB_CHUNKS+jchunk_pos]);
 			chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].model.translation = { ichunk*CHUNKS_LENGTH, jchunk*CHUNKS_LENGTH, 0 }; // move the chunk to the correct place
 			draw(chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos], environment); // draw the chunk
 			if(gui.display_wireframe)
@@ -234,25 +263,33 @@ void scene_structure::idle_frame()
 	float decal = decalbase + height_generator.generateHeight(camx_rollflipped, camy_rollflipped);
 
 	float newz = CAMERA_HEIGHT + decal;
-
-	if(is_floating)
-	{
-		newz+= FLOATING_HEIGHT;
+	if (camera_control.camera_model.position_camera.z <= newz){
+		camera_control.camera_model.position_camera.z = newz;
+		is_falling = false;
 	}
-
-	camera_control.camera_model.position_camera.z = newz;
-	
-	if (inputs.keyboard.is_pressed('e')) {
-		is_floating = true;
+	if (inputs.keyboard.is_pressed('x')) {
+		camera_control.camera_model.position_camera.z += 0.5f;
+		if (camera_control.camera_model.position_camera.z > newz+10.0f) {
+			camera_control.camera_model.position_camera.z = newz+10.0f;
+		}
 	}
 	else{
-		is_floating = false;
-		/*
-		if (camera_control.camera_model.position_camera.z >pos) {
-			is_falling = true;
-			gravity.apply_gravity(camera_control, timer.t - time_falling);
-		}*/
+	if (camera_control.camera_model.position_camera.z >newz) {
+		if (is_falling == false) {
+			
+			std::cout << "Falling" << std::endl;
+			std::cout << "Time passing " << timer.t << std::endl;
+			std::cout << "Time " << std::endl;
+			}
+		is_falling = true;
+		std::cout<< "Falling" << std::endl;
+		std::cout << "Time " << timer.t << std::endl;
+		std::cout << "Time fdfadafeg " << time_falling << std::endl;
+		std::cout << "Time falling: " << timer.t - time_falling << std::endl;
+		gravity.apply_gravity(camera_control, timer.t - time_falling);
 	}
+	}
+
 }
 
 
