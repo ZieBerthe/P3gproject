@@ -253,7 +253,7 @@ void scene_structure::display_frame()
 			int jchunk_dec = jchunk - jchunk_pos; // calculate the difference between the chunk index and the rolled chunk index
 			//std::cout<<"Chunk : "<<ichunk<<" ; "<<jchunk<<" -- Assigned chunk : "<<ichunk_pos<<" ; "<<jchunk_pos<<std::endl;
 			
-			deform_chunk_dyna(chunks[ichunk_pos*NB_CHUNKS+jchunk_pos], ichunk_pos, jchunk_pos); // deform with moves
+			//deform_chunk_dyna(chunks[ichunk_pos*NB_CHUNKS+jchunk_pos], ichunk_pos, jchunk_pos); // deform with moves
 			//chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].initialize_data_on_gpu(chunks[ichunk_pos*NB_CHUNKS+jchunk_pos]);
 			chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].model.translation = { ichunk_dec*CHUNKS_LENGTH, jchunk_dec*CHUNKS_LENGTH, 0 }; // move the chunk to the correct place
 			draw(chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos], environment); // draw the chunk
