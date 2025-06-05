@@ -39,8 +39,8 @@ void main()
 
 	vec4 position = M * model * vec4(vertex_position, 1.0);
 	for (int i = 0; i < points_count; ++i) {
-	    if ((abs(points[i].x - vertex_position.x) < 20) &&
-	       (abs(points[i].y - vertex_position.y) < 20)) {
+	    if ((abs(points[i].x - vertex_position.x) < 1.0f) &&
+	       (abs(points[i].y - vertex_position.y) < 1.0f)) {
 	        position = vec4(0.0, 0.0, -550.0, 1.0); // If the vertex is close to a point, set its position to the point
 	        break;
 	    }
