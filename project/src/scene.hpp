@@ -32,6 +32,8 @@ struct scene_structure : cgp::scene_inputs_generic {
 	input_devices inputs;                // Storage for inputs status (mouse, keyboard, window dimension)
 	gui_parameters gui;                  // Standard GUI element storage
 	
+	opengl_shader_structure shader_custom;
+
 	camera_controller_2d_displacement camera_control;
 	// ****************************** //
 	// Elements and shapes of the scene
@@ -41,10 +43,11 @@ struct scene_structure : cgp::scene_inputs_generic {
 	timer_basic lasttick;
 	HeightsGenerator height_generator;
 	MoveGenerator move_generator;
+
 	const int NB_CHUNKS = 10; // Number of chunks in each direction (total number of chunks = NB_CHUNKS^2)
 	int RENDER_DISTANCE = 1; // Number of chunks to render in each direction
 	const float CHUNKS_LENGTH = 10.0f; // Length of a chunk side
-	const int CHUNKS_DIV = 11; // Number of vertices per chunk each side
+	const int CHUNKS_DIV = 15; // Number of vertices per chunk each side
 	const float ROLLLENGTH = NB_CHUNKS * CHUNKS_LENGTH; // Total length of the rolling terrain
 	const float ROLLFLIPLENGTH = NB_CHUNKS * CHUNKS_LENGTH / 2;
 	
@@ -53,7 +56,7 @@ struct scene_structure : cgp::scene_inputs_generic {
 	float CAMERA_HEIGHT = 1.0f;
 	float FLOATING_HEIGHT = 10.0f;
 	bool is_floating = false;
-	bool noflat = true;
+	bool noflat = false;
 
 
 	mesh* chunks;

@@ -65,7 +65,7 @@ void scene_structure::deform_chunk_init(mesh& chunk, int ichunk, int jchunk)
 void scene_structure::initialize()
 {
 	std::cout << "Start function scene_structure::initialize()" << std::endl;
-	opengl_shader_structure shader_custom;
+	
 	shader_custom.load(
 		project::path + "shaders/mesh/mesh.vert.glsl",
 		project::path + "shaders/mesh/mesh_multi_texture.frag.glsl");
@@ -100,10 +100,10 @@ void scene_structure::initialize()
 
 	// GENERATORS SETUP
 	height_generator = HeightsGenerator(ROLLLENGTH);
-	move_generator = MoveGenerator(ROLLLENGTH, 8*NB_CHUNKS, 0); // Initialize the move generator with a roll parameter of 0.0f // Initialize the height generator with a roll parameter of 0.0f
+	move_generator = MoveGenerator(ROLLLENGTH, NB_CHUNKS*NB_CHUNKS*2, 0); // Initialize the move generator with a roll parameter of 0.0f // Initialize the height generator with a roll parameter of 0.0f
 	const auto& pts = move_generator.getPoints();
 	for (const auto& pt : pts) {
-		std::cout << "les points sont Point: (" << pt.x0 << ", " << pt.y0 << ", " << pt.speed << ", " << pt.amplitudemax << ", " << pt.flateningfactor << ", " << pt.rollparameter << ", " << pt.seed << ")" << std::endl;
+		std::cout << "les points sont Point: (" << pt.x0 << ", " << pt.y0 << ", " << pt.speed << ")" << std::endl;
 	}
 	// --- Send points to the vertex shader as a uniform array ---
 	// Assuming shader_custom is still in scope and pts is a vector of a struct with float fields
@@ -118,7 +118,7 @@ void scene_structure::initialize()
 	}
 	GLuint shader_id = shader_custom.id;
 	glUseProgram(shader_id);
-	int max_points = NB_CHUNKS * NB_CHUNKS; 
+	int max_points = NB_CHUNKS * NB_CHUNKS*2; 
 	int n_points = std::min(int(pts.size()), max_points);
 	GLint loc = glGetUniformLocation(shader_id, "points");
 	if (loc != -1) {
@@ -128,7 +128,17 @@ void scene_structure::initialize()
 	if (loc_count != -1) {
 		glUniform1i(loc_count, n_points);
 	}
+	GLint loc_flattening = glGetUniformLocation(shader_id, "flattening");
+	if (loc_flattening != -1) {
+		glUniform1f(loc_flattening, move_generator.FLATTENING);
+	}
+	GLint loc_rollparameter = glGetUniformLocation(shader_id, "rollparameter");
+	if (loc_rollparameter != -1) {
+		glUniform1f(loc_rollparameter, ROLLLENGTH);
+	}
 	glUseProgram(0);
+
+
 	chunks = new mesh[NB_CHUNKS*NB_CHUNKS];
 	chunks_draw = new mesh_drawable[NB_CHUNKS*NB_CHUNKS];
 	flatdecals = new float[NB_CHUNKS*NB_CHUNKS* CHUNKS_DIV * CHUNKS_DIV];
@@ -151,10 +161,11 @@ void scene_structure::initialize()
 			deform_chunk_init(cur_chunk, ichunk, jchunk);
 
 			//TEXTURE AND SHADER SETUP
-			chunks_draw[ichunk*NB_CHUNKS+jchunk].initialize_data_on_gpu(cur_chunk);
+			
 			chunks_draw[ichunk*NB_CHUNKS+jchunk].shader = shader_custom;
 			chunks_draw[ichunk*NB_CHUNKS+jchunk].texture = texture_terrain;
 			chunks_draw[ichunk*NB_CHUNKS+jchunk].supplementary_texture["image_texture_2"].load_and_initialize_texture_2d_on_gpu(project::path + "assets/snowtexture.jpg", GL_MIRRORED_REPEAT, GL_MIRRORED_REPEAT);
+			chunks_draw[ichunk*NB_CHUNKS+jchunk].initialize_data_on_gpu(cur_chunk);
 			//chunks_draw[ichunk*NB_CHUNKS+jchunk].shader= shader_custom;
 			// glUniform1i(glGetUniformLocation(shader_custom.id, "image_texture_ground"), 0); // texture unit 0
 			// glUniform1i(glGetUniformLocation(shader_custom.id, "image_texture_snow"), 1);   // texture unit 1
@@ -177,6 +188,21 @@ void scene_structure::display_frame()
 {
 	environment.uniform_generic.uniform_float["time"] = timer.t; // send the time to the shader
 
+	//send uniform points to shaders
+	glUseProgram(shader_custom.id);
+	const auto& pts = move_generator.getPoints();
+	std::vector<float> amplitudes_flat;
+	for (const auto& pt : pts) {
+		amplitudes_flat.push_back(pt.current_amplitude);
+	}
+	GLuint shader_id = shader_custom.id;
+	int max_points = NB_CHUNKS * NB_CHUNKS*2; 
+	int n_points = std::min(int(pts.size()), max_points);
+	GLint loc = glGetUniformLocation(shader_id, "points_amplitude");
+	if (loc != -1) {
+		glUniform1fv(loc, n_points, amplitudes_flat.data());
+	}
+	glUseProgram(0);
 	// CAMERA AND SKYBOX DISPLAYING
 	// Set the light to the current position of the camera
 	environment.light = camera_control.camera_model.position();
@@ -207,9 +233,9 @@ void scene_structure::display_frame()
 	int jcamchunk = int(camera_control.camera_model.position().y / CHUNKS_LENGTH);
 	//std::cout<<"Camera in chunk : ("<<icamchunk<<" ; "<<jcamchunk<<")"<<std::endl;
 	// print current camera position
-	std::cout << "Camera position: (" << camera_control.camera_model.position().x << ", " 
-		<< camera_control.camera_model.position().y << ", " 
-		<< camera_control.camera_model.position().z << ")" << std::endl;
+	//std::cout << "Camera position: (" << camera_control.camera_model.position().x << ", " 
+	//	<< camera_control.camera_model.position().y << ", " 
+	//	<< camera_control.camera_model.position().z << ")" << std::endl;
 	for (int ichunk = icamchunk-RENDER_DISTANCE; ichunk <= icamchunk+RENDER_DISTANCE; ++ichunk)
 	{
 
@@ -226,7 +252,7 @@ void scene_structure::display_frame()
 			//std::cout<<"Chunk : "<<ichunk<<" ; "<<jchunk<<" -- Assigned chunk : "<<ichunk_pos<<" ; "<<jchunk_pos<<std::endl;
 			
 			deform_chunk_dyna(chunks[ichunk_pos*NB_CHUNKS+jchunk_pos], ichunk_pos, jchunk_pos); // deform with moves
-			chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].initialize_data_on_gpu(chunks[ichunk_pos*NB_CHUNKS+jchunk_pos]);
+			//chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].initialize_data_on_gpu(chunks[ichunk_pos*NB_CHUNKS+jchunk_pos]);
 			chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].model.translation = { ichunk_dec*CHUNKS_LENGTH, jchunk_dec*CHUNKS_LENGTH, 0 }; // move the chunk to the correct place
 			draw(chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos], environment); // draw the chunk
 			if(gui.display_wireframe)
@@ -235,6 +261,10 @@ void scene_structure::display_frame()
 			}
 		}
 	}
+
+	
+	
+ // send the roll parameter to the shader
 
 	//WATER DRAWING
 	if (gui.display_wireframe) {
@@ -277,7 +307,7 @@ void scene_structure::idle_frame()
 		decalbase = 0.0f; // if no flat, set the height to 0
 	}
 	float decal = decalbase + move_generator.calculateHeight(camx_rollflipped, camy_rollflipped);
-
+	bool DEBUG_GRAVITY = false;
 	float newz = CAMERA_HEIGHT + decal;
 	if (camera_control.camera_model.position_camera.z <= newz){
 		camera_control.camera_model.position_camera.z = newz;
@@ -291,17 +321,19 @@ void scene_structure::idle_frame()
 	}
 	else{
 	if (camera_control.camera_model.position_camera.z >newz) {
-		if (is_falling == false) {
+		if (is_falling == false && DEBUG_GRAVITY) {
 			
 			std::cout << "Falling" << std::endl;
 			std::cout << "Time passing " << timer.t << std::endl;
 			std::cout << "Time " << std::endl;
 			}
 		is_falling = true;
-		std::cout<< "Falling" << std::endl;
-		std::cout << "Time " << timer.t << std::endl;
-		std::cout << "Time fdfadafeg " << time_falling << std::endl;
-		std::cout << "Time falling: " << timer.t - time_falling << std::endl;
+		if (DEBUG_GRAVITY) {
+			std::cout<< "Falling" << std::endl;
+			std::cout << "Time " << timer.t << std::endl;
+			std::cout << "Time fdfadafeg " << time_falling << std::endl;
+			std::cout << "Time falling: " << timer.t - time_falling << std::endl;
+		}
 		gravity.apply_gravity(camera_control, timer.t - time_falling);
 	}
 	}

@@ -11,7 +11,7 @@ public:
 private:
     static constexpr float AMPLITUDE = 10.0f;
     static constexpr int OCTAVES = 3;
-    static constexpr float ROUGHNESS = 0.03f;
+    static constexpr float ROUGHNESS = 0.02f;
 
     float roll_parameter = 0.0f;
     float lissdiameter = 0.2f;
@@ -52,9 +52,10 @@ class MoveGenerator {
         float calculateHeight(float x, float y);
         void updatesituation(float dt);
         const std::vector<MovePoint>& getPoints() const;
+
+        float FLATTENING = 5.0f;
     private:
         float AMPLITUDE = 2.0f;
-        float FLATTENING = 4.0f;
         float SPEEDMIN = 0.05f;
         float SPEEDMAX = 0.6f;
 

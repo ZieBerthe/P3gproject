@@ -24,9 +24,12 @@ uniform mat4 projection; // Projection (perspective or orthogonal) matrix of the
 
 uniform float time;
 
-const int MAX_POINTS = 128; // Maximum number of points
+const int MAX_POINTS = 256; // Maximum number of points
 uniform vec4 points[MAX_POINTS];
+uniform float points_amplitude[MAX_POINTS]; // Amplitude of oscillation for each point
 uniform int points_count;
+uniform float flattening;
+uniform float rollparameter; // Roll parameter for the oscillation
 
 void main()
 {
@@ -37,14 +40,24 @@ void main()
         0.0, 0.0, 1.0, 0.0,
         0.0, 0.0, 0.0, 1.0));
 
-	vec4 position_moved = vec4(vertex_position,1.0) + vec4(0.0, 0.0, 0.0, 0.0);
+	vec4 position_moved = vec4(vertex_position,1.0);
+	float x = vertex_position.x;
+	float y = vertex_position.y;
+	float zdec = 0.0;
 	for (int i = 0; i < points_count; ++i) {
-	    if ((abs(points[i].x - vertex_position.x) < 1.0f) &&
-	       (abs(points[i].y - vertex_position.y) < 1.0f)) {
-	        position_moved = vec4(0.0, 0.0, -550.0, 1.0); // If the vertex is close to a point, set its position to the point
-	        break;
-	    }
+		float x0 = points[i].x;
+		float y0 = points[i].y;
+		float current_amplitude = points_amplitude[i];
+
+		float dxb = abs(x - x0);
+		float dyb = abs(y - y0);
+		float dx = min(dxb, rollparameter - dxb);
+		float dy = min(dyb, rollparameter - dyb);
+		float distancesq = dx * dx + dy * dy;
+		zdec += current_amplitude * exp(-distancesq / flattening);
 	}
+
+	position_moved.z += zdec; 
 	 // No movement applied in this shader
 
 	vec4 position = M * model * vec4(position_moved);
@@ -64,7 +77,6 @@ void main()
 	fragment.uv = vertex_uv;
 	
 	// gl_Position is a built-in variable which is the expected output of the vertex shader
-	vec4 oscillation = vec4(0.0, 0.0, 0.0, 0.0); // Oscillation is not used in this shader
 	gl_Position = position_projected; // gl_Position is the projected vertex position (in normalized device coordinates)
 
 	// Example usage: access points[0].xyzw, points_count
