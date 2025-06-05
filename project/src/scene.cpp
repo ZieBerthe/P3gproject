@@ -81,8 +81,9 @@ void scene_structure::initialize()
 	image_structure image_skybox_template = image_load_file(project::path+"assets/nskybox.png");
 	std::vector<image_structure> image_grid = image_split_grid(image_skybox_template, 4, 3); // Split the image into a grid of 4 x 3 sub-images
 	skybox.initialize_data_on_gpu();
+	
 	skybox.texture.initialize_cubemap_on_gpu(image_grid[1], image_grid[7], image_grid[5], image_grid[3], image_grid[10], image_grid[4]);
-
+	
 	// INFO DISPLAY
 	display_info();
 	global_frame.initialize_data_on_gpu(mesh_primitive_frame());
@@ -169,9 +170,10 @@ void scene_structure::display_frame()
 	// CAMERA AND SKYBOX DISPLAYING
 	// Set the light to the current position of the camera
 	environment.light = camera_control.camera_model.position();
+	if (gui.display_skybox){
 	glDepthMask(GL_FALSE); // disable depth-buffer writing
 	draw(skybox, environment);
-	glDepthMask(GL_TRUE);  // faut réactiver après avoir dessiné le skybox
+	glDepthMask(GL_TRUE); }// faut réactiver après avoir dessiné le skybox
 
 	// TIMER UPDATE AND TERRAIN DEFORMATION
 	timer.update();
@@ -233,6 +235,7 @@ void scene_structure::display_gui()
 {
 	ImGui::Checkbox("Frame", &gui.display_frame);
 	ImGui::Checkbox("Wireframe", &gui.display_wireframe);
+	ImGui::Checkbox("Skybox", &gui.display_skybox);
 	ImGui::SliderInt("Render distance", &RENDER_DISTANCE, 1, NB_CHUNKS/2);
 
 }

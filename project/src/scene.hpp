@@ -15,6 +15,7 @@ using cgp::timer_basic;
 struct gui_parameters {
 	bool display_frame = true;
 	bool display_wireframe = false;
+	bool display_skybox = true; // Display the skybox
 };
 
 // The structure of the custom scene
@@ -59,7 +60,8 @@ struct scene_structure : cgp::scene_inputs_generic {
 	mesh_drawable* chunks_draw;
 	float* flatdecals;
 	mesh_drawable water;
-
+	
+	mesh_drawable tree;
 	opengl_texture_image_structure texture_terrain;
 	opengl_texture_image_structure texture_water;
 	opengl_texture_image_structure texture_earth;

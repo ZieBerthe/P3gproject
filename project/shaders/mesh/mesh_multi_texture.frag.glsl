@@ -70,6 +70,7 @@ void main()
 	mat3 O = transpose(mat3(view));                   // get the orientation matrix
 	vec3 last_col = vec3(view*vec4(0.0, 0.0, 0.0, 1.0)); // get the last column
 	vec3 camera_position = -O*last_col;
+	float dmax = 30.0;
 
 
 	// Renormalize normal
@@ -124,7 +125,7 @@ void main()
 	
 	float blend = clamp((height - (threshold - gradient)) / (2.0 * gradient), 0.0, 1.0);
 	vec4 color_image_texture = mix(color_image_texture_1, color_image_texture_2, blend);
-
+	vec3 current_color;
 
 	
 	// Compute Shading
@@ -132,14 +133,16 @@ void main()
 
 	// Compute the base color of the object based on: vertex color, uniform color, and texture
 	vec3 color_object  = fragment.color * material.color * color_image_texture.rgb;
-
+	float d = length(camera_position - fragment.position);
+	float af= min(d/dmax,1);
+	vec3 Cf= vec3(0.5,0.5,1.0);
 	// Compute the final shaded color using Phong model
 	float Ka = material.phong.ambient;
 	float Kd = material.phong.diffuse;
-	float Ks = 0.0f;
+	float Ks = material.phong.specular;
 	//ajout d'une teinte violée
 	vec3 color_shading = (Ka + Kd * diffuse_component) * color_object * vec3(0.7f,0.5f,1.0f) + Ks * specular_component * vec3(1.0, 1.0, 1.0);
-	
+	current_color = (1-af)*color_shading + af*Cf;
 	// Output color, with the alpha component
-	FragColor = vec4(color_shading, material.alpha * color_image_texture.a);
+	FragColor = vec4(current_color, material.alpha * color_image_texture.a);
 }
