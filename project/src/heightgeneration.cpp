@@ -4,7 +4,7 @@
 #include <random>
 #include <iostream>
 
-const int OCTAVES = 2;
+const int OCTAVES = 1;
 const float ROUGHNESS = 0.2f;
 const float AMPLITUDE = 15.0f;
 

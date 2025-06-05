@@ -96,7 +96,7 @@ void scene_structure::initialize()
 
 	// GENERATORS SETUP
 	height_generator = HeightsGenerator(ROLLLENGTH);
-	move_generator = MoveGenerator(ROLLLENGTH, 2* NB_CHUNKS*NB_CHUNKS, 0); // Initialize the move generator with a roll parameter of 0.0f // Initialize the height generator with a roll parameter of 0.0f
+	move_generator = MoveGenerator(ROLLLENGTH, 8*NB_CHUNKS, 0); // Initialize the move generator with a roll parameter of 0.0f // Initialize the height generator with a roll parameter of 0.0f
 
 	chunks = new mesh[NB_CHUNKS*NB_CHUNKS];
 	chunks_draw = new mesh_drawable[NB_CHUNKS*NB_CHUNKS];
@@ -180,8 +180,8 @@ void scene_structure::display_frame()
 			int jchunk_pos = roll_chunk(jchunk);
 			std::cout<<"Chunk : "<<ichunk<<" ; "<<jchunk<<" -- Assigned chunk : "<<ichunk_pos<<" ; "<<jchunk_pos<<std::endl;
 			
-			deform_chunk_dyna(chunks[ichunk_pos*NB_CHUNKS+jchunk_pos], ichunk_pos, jchunk_pos); // deform with moves
-			chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].initialize_data_on_gpu(chunks[ichunk_pos*NB_CHUNKS+jchunk_pos]);
+			//deform_chunk_dyna(chunks[ichunk_pos*NB_CHUNKS+jchunk_pos], ichunk_pos, jchunk_pos); // deform with moves
+			//chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].initialize_data_on_gpu(chunks[ichunk_pos*NB_CHUNKS+jchunk_pos]);
 			chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos].model.translation = { ichunk*CHUNKS_LENGTH, jchunk*CHUNKS_LENGTH, 0 }; // move the chunk to the correct place
 			draw(chunks_draw[ichunk_pos*NB_CHUNKS+jchunk_pos], environment); // draw the chunk
 			if(gui.display_wireframe)

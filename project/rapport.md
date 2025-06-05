@@ -1,7 +1,7 @@
 # Projet de Scène 3D Infinie avec Sol Dynamique
 
 ## Auteurs
-[Nom des membres du groupe]
+Nathan Duboissey, Zié Berthé
 
 ## Description du Projet
 Ce projet consiste en la création d'une scène 3D interactive où le sol se déplace de manière continue, créant l'illusion d'un terrain infini. Le projet utilise OpenGL et la bibliothèque CGP pour la gestion graphique.
@@ -19,7 +19,7 @@ Ce projet consiste en la création d'une scène 3D interactive où le sol se dé
 - Algorithme de bruit procédural pour la génération du terrain
 - Paramètres configurables :
   - Amplitude : 10.0
-  - Octaves : 3
+  - Octaves : 2
   - Rugosité : 0.03
 - Système de lissage pour des transitions naturelles
 
